@@ -12,11 +12,7 @@
       overflow-x: hidden;
       animation: fadeInBody 1.2s ease-in;
     }
-
-    @keyframes fadeInBody {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
 
     .container-topo {
       position: relative;
@@ -25,64 +21,41 @@
 
     .faixa-topo {
       background-color: #dd0000;
-      height: 100px;
+      height: 110px;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: sticky;
-      top: 0;
+      position: relative;
       z-index: 1002;
-      animation: slideDown 1s ease-out;
-      transition: all 0.4s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    body.scrolled .faixa-topo {
-      height: 90px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     .imagem-sobre-faixa {
       position: absolute;
       top: 10px;
-      left: 10px;
-      height: 80px;
+      left: 15px;
+      height: 90px;
       z-index: 1003;
-      animation: fadeIn 1.5s ease-in;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     .faixa-topo h1 {
       color: white;
       margin: 0;
-      font-size: 50px;
-      font-family: Arial, sans-serif;
+      font-size: 52px;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
       z-index: 1002;
-      animation: fadeInText 2s ease;
-      transition: font-size 0.4s ease, text-shadow 0.4s ease;
-    }
-
-    body.scrolled .faixa-topo h1 {
-      font-size: 44px;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
-    }
-
-    @keyframes fadeInText {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     .menu-hamburguer {
       position: absolute;
-      top: 35px;
-      right: 20px;
-      width: 30px;
-      height: 25px;
+      top: 40px;
+      right: 25px;
+      width: 35px;
+      height: 28px;
       cursor: pointer;
       z-index: 1100;
       display: flex;
@@ -90,15 +63,11 @@
       justify-content: space-between;
       transition: transform 0.3s ease;
     }
-
-    .menu-hamburguer:hover {
-      transform: scale(1.1);
-    }
-
+    .menu-hamburguer:hover { transform: scale(1.1); }
     .menu-hamburguer div {
-      height: 4px;
+      height: 5px;
       background-color: white;
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
     .sidebar {
@@ -111,19 +80,20 @@
       backdrop-filter: blur(8px);
       overflow-x: hidden;
       transition: 0.4s ease;
-      padding-top: 80px;
+      padding-top: 90px;
       z-index: 1050;
-      box-shadow: -4px 0 12px rgba(0,0,0,0.5);
+      box-shadow: -5px 0 15px rgba(0,0,0,0.4);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
     }
 
     .sidebar h2 {
-      margin: 0 0 20px 40px;
-      font-size: 24px;
+      margin: 0 0 25px 40px;
+      font-size: 26px;
       color: #222;
       font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
 
     .sidebar a {
@@ -140,9 +110,8 @@
       box-sizing: border-box;
       font-weight: 500;
     }
-
     .sidebar a:hover {
-      background-color: rgba(200,0,0,0.1);
+      background-color: rgba(200,0,0,0.12);
       padding-left: 50px;
       color: #dd0000;
       font-weight: bold;
@@ -161,7 +130,6 @@
       line-height: 1;
       transition: transform 0.4s ease;
     }
-
     .close-btn:hover {
       transform: rotate(90deg);
       color: #dd0000;
@@ -169,55 +137,41 @@
 
     .conteudo {
       background-color: white;
-      max-width: 1000px;
-      margin: 40px auto 80px auto;
-      padding: 40px;
+      max-width: 1100px;
+      margin: 50px auto 90px auto;
+      padding: 45px;
       box-sizing: border-box;
       border-radius: 12px;
       position: relative;
       z-index: 1010;
-      animation: fadeIn 1s ease;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
 
     .imagem-central-abaixo, .imagem-final, .imagem-aba {
       display: flex;
       justify-content: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       position: relative;
-      animation: zoomIn 1.5s ease;
-    }
-
-    @keyframes zoomIn {
-      from { transform: scale(0.7); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
     }
 
     .imagem-central-abaixo img, .imagem-final img, .imagem-aba img {
       width: 500px;
+      max-width: 90%;
       height: auto;
       display: block;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease;
     }
-
     .imagem-central-abaixo img:hover,
     .imagem-final img:hover,
     .imagem-aba img:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
     }
 
     p {
-      line-height: 1.6;
-      margin-bottom: 20px;
-      animation: fadeIn 1s ease;
+      line-height: 1.7;
+      margin-bottom: 22px;
     }
 
     section {
@@ -226,7 +180,6 @@
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
     section.active {
       display: block;
       opacity: 1;
@@ -240,36 +193,28 @@
       transform: translateX(-50%);
       background-color: #333;
       color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 12px 22px;
+      border-radius: 6px;
       font-size: 18px;
       font-weight: bold;
       text-align: center;
       white-space: nowrap;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
       z-index: 10;
-      animation: bounceIn 1.2s ease;
-    }
-
-    @keyframes bounceIn {
-      0% { transform: translate(-50%, -40px); opacity: 0; }
-      50% { transform: translate(-50%, -10px); opacity: 1; }
-      70% { transform: translate(-50%, -20px); }
-      100% { transform: translate(-50%, -25px); }
     }
 
     .destaque {
       font-weight: bold;
       margin-top: 25px;
-      animation: fadeInText 1.5s ease;
+      font-size: 18px;
     }
+
   </style>
 </head>
 <body>
 
   <div class="container-topo">
     <img src="pt1.png" alt="Logo" class="imagem-sobre-faixa">
-
     <div class="faixa-topo">
       <h1>PT em Mate</h1>
       <div class="menu-hamburguer" onclick="toggleSidebar()">
@@ -298,10 +243,13 @@
         <img src="LULA-BANDEIRA-PT-2022-01.webp" alt="Imagem Central">
         <div class="texto-sobre-imagem">Apresentação de Luiz Inácio Lula da Silva</div>
       </div>
-      <p>Luiz Inácio Lula da Silva é um político brasileiro e um dos fundadores do Partido dos Trabalhadores (PT)...</p>
+      <p>Luiz Inácio Lula da Silva é um político brasileiro e um dos fundadores do Partido dos Trabalhadores (PT). Foi presidente do Brasil entre 2003 e 2010 e voltou ao cargo em 2023, após um período marcado por controvérsias. Durante seus mandatos, implementou programas sociais que geraram impactos variados na sociedade, ao mesmo tempo em que enfrentou críticas relacionadas à gestão econômica e a casos de corrupção envolvendo membros de seu partido e aliados. Sua trajetória política é marcada por fortes polarizações, e ele também enfrentou diversos processos judiciais que dividiram opiniões no país. Antes de ingressar na política formal, atuou como líder sindical, tendo um papel importante nas mobilizações trabalhistas dos anos 70 e 80.</p>
       <p class="destaque">O Ato de Corrupção na Política Brasileira:</p>
-      <p>A corrupção é um fenômeno antigo e recorrente na história política do Brasil...</p>
-      <!-- restante do texto mantém igual -->
+      <p>A corrupção é um fenômeno antigo e recorrente na história política do Brasil, manifestando-se de diversas formas ao longo das décadas. No contexto político, ela envolve o uso indevido do poder público para obtenção de vantagens pessoais ou em benefício de terceiros. Isso pode incluir subornos, desvio de verbas públicas, fraudes em licitações, tráfico de influência, lavagem de dinheiro, entre outras práticas ilegais. Tais atos comprometem a integridade das institucões, minam a confiança da população e prejudicam diretamente o funcionamento do Estado.</p>
+      <p>Ao longo dos anos, diversos escândalos de corrupção vieram à tona, envolvendo agentes públicos de diferentes esferas de governo. Casos amplamente divulgados, como o Mensalão e a Operação Lava Jato, revelaram esquemas complexos de desvio de recursos públicos e financiamento ilegal de campanhas políticas. Esses escândalos mostraram como empresas privadas, órgãos públicos e lideranças políticas podem se envolver em redes de corrupção estruturadas e sistemáticas, muitas vezes contando com a participação de figuras influentes e altos funcionários.</p>
+      <p>O impacto da corrupção é profundo e duradouro. Recursos que deveriam ser destinados a áreas essenciais como saúde, educação, transporte e segurança acabam sendo desviados, prejudicando milhões de cidadãos, especialmente os mais vulneráveis. Além disso, o clima de impunidade — muitas vezes alimentado por falhas no sistema judiciário, lentidão nos processos e brechas legais — reforça a percepção de que a corrupção é uma prática comum e aceita nos bastidores do poder.</p>
+      <p>Apesar dos avanços em mecanismos de investigação e fiscalização, como o fortalecimento de órgãos como o Ministério Público, a Polícia Federal e os tribunais de contas, o combate à corrupção continua sendo um grande desafio. A complexidade dos esquemas, a influência política e a resistência a mudanças estruturais dificultam a efetividade das ações corretivas e preventivas.</p>
+      <p>Portanto, o ato de corrupção na política brasileira não pode ser visto como um problema isolado ou pontual, mas como parte de um sistema que requer reformas profundas, transparência e participação ativa da sociedade civil para ser transformado. A luta contra a corrupção é essencial para o fortalecimento da democracia e para a construção de um país mais justo, com instituições que funcionem de forma ética e em benefício de todos.</p>
     </section>
 
     <!-- Seção Sobre -->
@@ -310,8 +258,9 @@
         <img src="lei.jpeg" alt="Imagem Final">
         <div class="texto-sobre-imagem-final">Impostos e Crise Econômica</div>
       </div>
-      <p class="destaque">Crítica aos Impostos sobre Produtos da China...</p>
-      <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais...</p>
+      <p class="destaque">Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula:</p>
+      <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein, AliExpress, Shopee e outras, afetou diretamente milhões de brasileiros que buscavam alternativas mais acessíveis para o consumo próprio ou para manter pequenos negócios informais. A justificativa usada foi a de proteger o comércio nacional e garantir uma "concorrência justa", mas, na prática, a medida representou um aumento significativo no custo de vida da população de baixa e média renda. Produtos que antes custavam R$ 50 agora ultrapassam os R$ 100 com os tributos, ICMS e taxas adicionais. Pequenos empreendedores, que dependiam da importação para revenda, viram seus lucros desaparecerem. A decisão ignorou completamente a realidade econômica de um país onde a informalidade e o empreendedorismo digital são muitas vezes o único meio de sobrevivência para quem está fora do mercado de trabalho formal. Em vez de apoiar essas iniciativas, o governo optou por sufocá-las com mais impostos, atingindo justamente quem mais precisa de acesso a preços baixos e oportunidades de renda.</p>
+      <p>No cenário mais amplo, o atual governo tem sido acusado de agravar os problemas estruturais da economia brasileira com medidas intervencionistas, aumento do gasto público e ausência de reformas relevantes. A confiança de investidores vem caindo, o real permanece instável, a inflação pressiona o consumo e o país continua com altos índices de desemprego e desigualdade. Programas anunciados como soluções sociais não têm mostrado resultados concretos, enquanto a máquina pública cresce sem controle. A insistência em políticas ultrapassadas, o excesso de burocracia e a tentativa constante de controle estatal sobre setores produtivos alimentam um ambiente hostil para quem quer produzir ou empreender. Para muitos, o governo de Luiz Inácio Lula da Silva não está apenas repetindo os erros do passado — está acelerando o processo de deterioração da economia nacional. Se esse caminho continuar, o país poderá enfrentar um ciclo prolongado de estagnação, desindustrialização e aumento da pobreza, com impactos duradouros na vida de milhões de brasileiros.</p>
     </section>
 
     <!-- Seção Aba1 -->
@@ -320,7 +269,13 @@
         <img src="aba1.jpeg" alt="Aba 1">
         <div class="texto-sobre-imagem-aba">Corrupção e escândalos envolvendo o PT</div>
       </div>
-      <p>Durante os mandatos de Lula, o Brasil enfrentou diversos episódios de corrupção...</p>
+      <p>Durante os mandatos de Lula, o Brasil enfrentou diversos episódios de corrupção que envolveram diretamente membros do Partido dos Trabalhadores (PT) e aliados políticos. Entre os mais conhecidos, destacam-se o Mensalão, que revelou esquemas de compra de votos no Congresso, e a Operação Lava Jato, que expôs desvios bilionários em contratos com grandes empresas estatais. Esses casos evidenciam falhas graves na fiscalização e na ética governamental, colocando em xeque a transparência administrativa.</p>
+      <p class="destaque">Impacto na confiança pública:</p>
+      <p>A consequência mais direta desses escândalos foi a perda de confiança da população nas instituições e nos representantes eleitos. A percepção de impunidade e a sensação de que políticos estariam acima da lei geraram descrédito generalizado, enfraquecendo a democracia e tornando mais difícil que políticas públicas fossem recebidas com legitimidade. Além disso, a repercussão internacional desses casos afetou a imagem do país, prejudicando negociações e investimentos externos.</p>
+      <p class="destaque">Repercussões políticas:</p>
+      <p>Politicamente, os escândalos abriram espaço para crises institucionais e polarização social. A oposição utilizou esses episódios como argumento para questionar a competência e a moralidade do governo, criando um clima de instabilidade e desconfiança que persistiu mesmo durante períodos de crescimento econômico. Isso demonstra que avanços sociais não são suficientes quando práticas ilegais e antiéticas minam a confiança da população.</p>
+      <p class="destaque">Custos econômicos da corrupção:</p>
+      <p>Além do impacto político e social, a corrupção provocou prejuízos financeiros diretos à população, desviando recursos que poderiam ser aplicados em saúde, educação e infraestrutura. Esse desvio comprometeu a eficiência do investimento público, mostrando que a corrupção não é apenas um problema moral, mas também um obstáculo real ao desenvolvimento econômico sustentável.</p>
     </section>
 
     <!-- Seção Aba2 -->
@@ -329,7 +284,13 @@
         <img src="aba2.jpeg" alt="Aba 2">
         <div class="texto-sobre-imagem-aba">Inflação e aumento do custo de vida</div>
       </div>
-      <p>Apesar de programas sociais e avanços em áreas como educação e saúde...</p>
+      <p>Apesar de programas sociais e avanços em áreas como educação e saúde, o país enfrentou momentos de inflação elevada que impactaram diretamente a vida da população. Os aumentos no preço de produtos essenciais, como alimentos, combustíveis e serviços básicos, reduziram o poder de compra das famílias, especialmente das mais vulneráveis, tornando o dia a dia mais difícil e limitando o acesso a necessidades básicas.</p>
+      <p class="destaque">Consequências sociais e econômicas:</p>
+      <p>A inflação não afeta apenas o bolso do cidadão; ela influencia a qualidade de vida, aumentando a desigualdade social e pressionando o orçamento das famílias. Muitos trabalhadores perceberam que, apesar de receber programas de auxílio, o custo crescente de itens essenciais neutralizava parte desses benefícios, mostrando a fragilidade de políticas econômicas que não combatem efetivamente a inflação.</p>
+      <p class="destaque">Necessidade de políticas econômicas eficazes:</p>
+      <p>Esses episódios evidenciam a importância de uma gestão financeira responsável, capaz de equilibrar crescimento econômico com estabilidade de preços. Sem medidas adequadas, o aumento do custo de vida compromete a confiança da população na capacidade do governo de garantir prosperidade e bem-estar, tornando vulneráveis aqueles que mais precisam de proteção social.</p>
+      <p class="destaque">Impacto sobre investimentos e empregos:</p>
+      <p>A inflação também afeta o ambiente de negócios, tornando o planejamento financeiro de empresas mais incerto e desestimulando investimentos. Isso pode resultar em menor criação de empregos e em instabilidade no mercado de trabalho, mostrando que o aumento do custo de vida não prejudica apenas os consumidores, mas também a economia como um todo.</p>
     </section>
 
   </div>
@@ -354,15 +315,6 @@
       const sectionToShow = document.getElementById(sectionId);
       if (sectionToShow) sectionToShow.classList.add('active');
     }
-
-    // Efeito parallax/rolagem
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
-        document.body.classList.add('scrolled');
-      } else {
-        document.body.classList.remove('scrolled');
-      }
-    });
   </script>
 
 </body>
