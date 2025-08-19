@@ -4,16 +4,17 @@
   <title>PT em Mate</title>
   <link rel="icon" type="image/ico" href="favicon.ico">
   <style>
+    /* Corpo do site */
     body {
       margin: 0;
       padding: 0;
       background-color: #dd0000;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       overflow-x: hidden;
-      animation: fadeInBody 1.2s ease-in;
+      color: #222;
     }
-    @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
 
+    /* Topo */
     .container-topo {
       position: relative;
       z-index: 1002;
@@ -27,8 +28,15 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      z-index: 1002;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .faixa-topo h1 {
+      color: white;
+      font-size: 50px;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+      margin: 0;
     }
 
     .imagem-sobre-faixa {
@@ -36,31 +44,22 @@
       top: 10px;
       left: 15px;
       height: 90px;
-      z-index: 1003;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
 
-    .faixa-topo h1 {
-      color: white;
-      margin: 0;
-      font-size: 52px;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
-      z-index: 1002;
-    }
-
+    /* Menu hambúrguer */
     .menu-hamburguer {
       position: absolute;
       top: 40px;
       right: 25px;
       width: 35px;
       height: 28px;
-      cursor: pointer;
-      z-index: 1100;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      cursor: pointer;
+      z-index: 1100;
       transition: transform 0.3s ease;
     }
     .menu-hamburguer:hover { transform: scale(1.1); }
@@ -70,6 +69,7 @@
       border-radius: 3px;
     }
 
+    /* Sidebar */
     .sidebar {
       height: 100%;
       width: 0;
@@ -77,46 +77,35 @@
       top: 0;
       right: 0;
       background: linear-gradient(160deg, rgba(255,255,255,0.95), rgba(230,230,230,0.95));
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
       overflow-x: hidden;
       transition: 0.4s ease;
-      padding-top: 90px;
+      padding-top: 100px;
       z-index: 1050;
-      box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+      box-shadow: -5px 0 15px rgba(0,0,0,0.5);
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
     }
-
     .sidebar h2 {
-      margin: 0 0 25px 40px;
+      margin-left: 40px;
       font-size: 26px;
-      color: #222;
       font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+      color: #222;
     }
-
     .sidebar a {
       padding: 15px 40px;
       text-decoration: none;
       font-size: 20px;
       color: #222;
-      display: flex;
-      align-items: center;
-      gap: 10px;
       transition: all 0.3s ease;
-      cursor: pointer;
-      width: 100%;
-      box-sizing: border-box;
-      font-weight: 500;
     }
     .sidebar a:hover {
-      background-color: rgba(200,0,0,0.12);
+      background-color: rgba(200,0,0,0.1);
       padding-left: 50px;
       color: #dd0000;
       font-weight: bold;
     }
-
     .close-btn {
       position: absolute;
       top: 15px;
@@ -124,68 +113,44 @@
       font-size: 30px;
       color: black;
       cursor: pointer;
-      user-select: none;
-      z-index: 1100;
       font-weight: bold;
-      line-height: 1;
-      transition: transform 0.4s ease;
+      transition: transform 0.3s ease;
     }
     .close-btn:hover {
       transform: rotate(90deg);
       color: #dd0000;
     }
 
+    /* Conteúdo */
     .conteudo {
-      background-color: white;
       max-width: 1100px;
+      background: white;
       margin: 50px auto 90px auto;
-      padding: 45px;
-      box-sizing: border-box;
+      padding: 50px;
       border-radius: 12px;
-      position: relative;
-      z-index: 1010;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
+    /* Imagens */
     .imagem-central-abaixo, .imagem-final, .imagem-aba {
       display: flex;
       justify-content: center;
       margin-bottom: 35px;
       position: relative;
     }
-
     .imagem-central-abaixo img, .imagem-final img, .imagem-aba img {
       width: 500px;
       max-width: 90%;
       height: auto;
-      display: block;
       border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-      transition: transform 0.4s ease;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
     }
     .imagem-central-abaixo img:hover,
     .imagem-final img:hover,
-    .imagem-aba img:hover {
-      transform: scale(1.05);
-    }
+    .imagem-aba img:hover { transform: scale(1.05); }
 
-    p {
-      line-height: 1.7;
-      margin-bottom: 22px;
-    }
-
-    section {
-      display: none;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
+    /* Textos sobre imagens */
     .texto-sobre-imagem, .texto-sobre-imagem-final, .texto-sobre-imagem-aba {
       position: absolute;
       top: -25px;
@@ -195,12 +160,16 @@
       color: white;
       padding: 12px 22px;
       border-radius: 6px;
-      font-size: 18px;
       font-weight: bold;
+      font-size: 18px;
       text-align: center;
-      white-space: nowrap;
       box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-      z-index: 10;
+    }
+
+    /* Parágrafos */
+    p {
+      line-height: 1.7;
+      margin-bottom: 22px;
     }
 
     .destaque {
@@ -209,6 +178,18 @@
       font-size: 18px;
     }
 
+    /* Seções */
+    section {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -218,9 +199,7 @@
     <div class="faixa-topo">
       <h1>PT em Mate</h1>
       <div class="menu-hamburguer" onclick="toggleSidebar()">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div></div><div></div><div></div>
       </div>
     </div>
   </div>
@@ -236,8 +215,7 @@
   </div>
 
   <div class="conteudo">
-
-    <!-- Seção Home -->
+    <!-- Home -->
     <section id="home" class="active">
       <div class="imagem-central-abaixo">
         <img src="LULA-BANDEIRA-PT-2022-01.webp" alt="Imagem Central">
@@ -252,7 +230,7 @@
       <p>Portanto, o ato de corrupção na política brasileira não pode ser visto como um problema isolado ou pontual, mas como parte de um sistema que requer reformas profundas, transparência e participação ativa da sociedade civil para ser transformado. A luta contra a corrupção é essencial para o fortalecimento da democracia e para a construção de um país mais justo, com instituições que funcionem de forma ética e em benefício de todos.</p>
     </section>
 
-    <!-- Seção Sobre -->
+    <!-- Sobre -->
     <section id="sobre">
       <div class="imagem-final">
         <img src="lei.jpeg" alt="Imagem Final">
@@ -263,22 +241,22 @@
       <p>No cenário mais amplo, o atual governo tem sido acusado de agravar os problemas estruturais da economia brasileira com medidas intervencionistas, aumento do gasto público e ausência de reformas relevantes. A confiança de investidores vem caindo, o real permanece instável, a inflação pressiona o consumo e o país continua com altos índices de desemprego e desigualdade. Programas anunciados como soluções sociais não têm mostrado resultados concretos, enquanto a máquina pública cresce sem controle. A insistência em políticas ultrapassadas, o excesso de burocracia e a tentativa constante de controle estatal sobre setores produtivos alimentam um ambiente hostil para quem quer produzir ou empreender. Para muitos, o governo de Luiz Inácio Lula da Silva não está apenas repetindo os erros do passado — está acelerando o processo de deterioração da economia nacional. Se esse caminho continuar, o país poderá enfrentar um ciclo prolongado de estagnação, desindustrialização e aumento da pobreza, com impactos duradouros na vida de milhões de brasileiros.</p>
     </section>
 
-    <!-- Seção Aba1 -->
+    <!-- Aba1 -->
     <section id="aba1">
       <div class="imagem-aba">
         <img src="aba1.jpeg" alt="Aba 1">
         <div class="texto-sobre-imagem-aba">Corrupção e escândalos envolvendo o PT</div>
       </div>
       <p>Durante os mandatos de Lula, o Brasil enfrentou diversos episódios de corrupção que envolveram diretamente membros do Partido dos Trabalhadores (PT) e aliados políticos. Entre os mais conhecidos, destacam-se o Mensalão, que revelou esquemas de compra de votos no Congresso, e a Operação Lava Jato, que expôs desvios bilionários em contratos com grandes empresas estatais. Esses casos evidenciam falhas graves na fiscalização e na ética governamental, colocando em xeque a transparência administrativa.</p>
-      <p class="destaque">Impacto na confiança pública:</p>
-      <p>A consequência mais direta desses escândalos foi a perda de confiança da população nas instituições e nos representantes eleitos. A percepção de impunidade e a sensação de que políticos estariam acima da lei geraram descrédito generalizado, enfraquecendo a democracia e tornando mais difícil que políticas públicas fossem recebidas com legitimidade. Além disso, a repercussão internacional desses casos afetou a imagem do país, prejudicando negociações e investimentos externos.</p>
+      <p class="destaque">Impacto na confiança pública:</p
+            <p>A consequência mais direta desses escândalos foi a perda de confiança da população nas instituições e nos representantes eleitos. A percepção de impunidade e a sensação de que políticos estariam acima da lei geraram descrédito generalizado, enfraquecendo a democracia e tornando mais difícil que políticas públicas fossem recebidas com legitimidade. Além disso, a repercussão internacional desses casos afetou a imagem do país, prejudicando negociações e investimentos externos.</p>
       <p class="destaque">Repercussões políticas:</p>
       <p>Politicamente, os escândalos abriram espaço para crises institucionais e polarização social. A oposição utilizou esses episódios como argumento para questionar a competência e a moralidade do governo, criando um clima de instabilidade e desconfiança que persistiu mesmo durante períodos de crescimento econômico. Isso demonstra que avanços sociais não são suficientes quando práticas ilegais e antiéticas minam a confiança da população.</p>
       <p class="destaque">Custos econômicos da corrupção:</p>
       <p>Além do impacto político e social, a corrupção provocou prejuízos financeiros diretos à população, desviando recursos que poderiam ser aplicados em saúde, educação e infraestrutura. Esse desvio comprometeu a eficiência do investimento público, mostrando que a corrupção não é apenas um problema moral, mas também um obstáculo real ao desenvolvimento econômico sustentável.</p>
     </section>
 
-    <!-- Seção Aba2 -->
+    <!-- Aba2 -->
     <section id="aba2">
       <div class="imagem-aba">
         <img src="aba2.jpeg" alt="Aba 2">
