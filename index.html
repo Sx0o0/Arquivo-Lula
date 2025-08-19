@@ -94,7 +94,7 @@
     }
 
     .sidebar a:hover {
-      background-color: #FFFFFF;
+      background-color: #f1f1f1;
     }
 
     .close-btn {
@@ -125,29 +125,32 @@
       display: flex;
       justify-content: center;
       margin-top: 0;
-      margin-bottom: 20px;
-      position: relative; /* Adicionado para posicionamento relativo */
+      margin-bottom: 30px;
+      position: relative;
     }
 
     .imagem-central-abaixo img {
       width: 500px;
       height: auto;
+      display: block;
     }
 
     .imagem-final {
       display: flex;
       justify-content: center;
-      margin: 50px 0 20px 0;
-      position: relative; /* Adicionado para posicionamento relativo */
+      margin: 40px 0 30px 0;
+      position: relative;
     }
 
     .imagem-final img {
       width: 500px;
       height: auto;
+      display: block;
     }
 
     p {
       line-height: 1.6;
+      margin-bottom: 20px;
     }
 
     section {
@@ -157,31 +160,44 @@
       display: block;
     }
     
-    /* NOVOS ESTILOS PARA TEXTO SOBRE IMAGEM */
+    /* Estilos para os textos sobre as imagens */
     .texto-sobre-imagem {
       position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
-      background-color: rgba(0, 0, 0, 0.7);
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #dd0000;
       color: white;
-      padding: 15px;
-      text-align: center;
+      padding: 10px 20px;
+      border-radius: 5px;
       font-size: 18px;
       font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      z-index: 10;
     }
     
     .texto-sobre-imagem-final {
       position: absolute;
-      top: 20px;
-      left: 0;
-      right: 0;
-      background-color: rgba(221, 0, 0, 0.8);
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
       color: white;
-      padding: 15px;
-      text-align: center;
+      padding: 10px 20px;
+      border-radius: 5px;
       font-size: 18px;
       font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+    
+    .destaque {
+      font-weight: bold;
+      color: #dd0000;
     }
   </style>
 </head>
@@ -217,7 +233,7 @@
 
       <p>Luiz Inácio Lula da Silva é um político brasileiro e um dos fundadores do Partido dos Trabalhadores (PT). Foi presidente do Brasil entre 2003 e 2010 e voltou ao cargo em 2023, após um período marcado por controvérsias. Durante seus mandatos, implementou programas sociais que geraram impactos variados na sociedade, ao mesmo tempo em que enfrentou críticas relacionadas à gestão econômica e a casos de corrupção envolvendo membros de seu partido e aliados. Sua trajetória política é marcada por fortes polarizações, e ele também enfrentou diversos processos judiciais que dividiram opiniões no país. Antes de ingressar na política formal, atuou como líder sindical, tendo um papel importante nas mobilizações trabalhistas dos anos 70 e 80.</p>
       
-      <p><strong>O Ato de Corrupção na Política Brasileira:</strong></p>
+      <p class="destaque">O Ato de Corrupção na Política Brasileira:</p>
       <p>A corrupção é um fenômeno antigo e recorrente na história política do Brasil, manifestando-se de diversas formas ao longo das décadas. No contexto político, ela envolve o uso indevido do poder público para obtenção de vantagens pessoais ou em benefício de terceiros. Isso pode incluir subornos, desvio de verbas públicas, fraudes em licitações, tráfico de influência, lavagem de dinheiro, entre outras práticas ilegais. Tais atos comprometem a integridade das instituições, minam a confiança da população e prejudicam diretamente o funcionamento do Estado.</p>
 
       <p>Ao longo dos anos, diversos escândalos de corrupção vieram à tona, envolvendo agentes públicos de diferentes esferas de governo. Casos amplamente divulgados, como o Mensalão e a Operação Lava Jato, revelaram esquemas complexos de desvio de recursos públicos e financiamento ilegal de campanhas políticas. Esses escândalos mostraram como empresas privadas, órgãos públicos e lideranças políticas podem se envolver em redes de corrupção estruturadas e sistemáticas, muitas vezes contando com a participação de figuras influentes e altos funcionários.</p>
@@ -232,10 +248,11 @@
     <section id="sobre">
       <div class="imagem-final">
         <img src="lei.jpeg" alt="Imagem Final">
-        <div class="texto-sobre-imagem-final">Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula</div>
+        <div class="texto-sobre-imagem-final">Impostos e Crise Econômica</div>
       </div>
 
-      <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein, AliExpress, Shopee e outras, afetou diretamente milhões de brasileiros que buscavam alternativas mais acessíveis para o consumo próprio ou para manter pequenos negócios informais. A justificativa usada foi a de proteger o comércio nacional e garantir uma “concorrência justa”, mas, na prática, a medida representou um aumento significativo no custo de vida da população de baixa e média renda. Produtos que antes custavam R$ 50 agora ultrapassam os R$ 100 com os tributos, ICMS e taxas adicionais. Pequenos empreendedores, que dependiam da importação para revenda, viram seus lucros desaparecerem. A decisão ignorou completamente a realidade econômica de um país onde a informalidade e o empreendedorismo digital são muitas vezes o único meio de sobrevivência para quem está fora do mercado de trabalho formal. Em vez de apoiar essas iniciativas, o governo optou por sufocá-las com mais impostos, atingindo justamente quem mais precisa de acesso a preços baixos e oportunidades de renda.</p>
+      <p class="destaque">Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula:</p>
+      <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein, AliExpress, Shopee e outras, afetou diretamente milhões de brasileiros que buscavam alternativas mais acessíveis para o consumo próprio ou para manter pequenos negócios informais. A justificativa usada foi a de proteger o comércio nacional e garantir uma "concorrência justa", mas, na prática, a medida representou um aumento significativo no custo de vida da população de baixa e média renda. Produtos que antes custavam R$ 50 agora ultrapassam os R$ 100 com os tributos, ICMS e taxas adicionais. Pequenos empreendedores, que dependiam da importação para revenda, viram seus lucros desaparecerem. A decisão ignorou completamente a realidade econômica de um país onde a informalidade e o empreendedorismo digital são muitas vezes o único meio de sobrevivência para quem está fora do mercado de trabalho formal. Em vez de apoiar essas iniciativas, o governo optou por sufocá-las com mais impostos, atingindo justamente quem mais precisa de acesso a preços baixos e oportunidades de renda.</p>
 
       <p>No cenário mais amplo, o atual governo tem sido acusado de agravar os problemas estruturais da economia brasileira com medidas intervencionistas, aumento do gasto público e ausência de reformas relevantes. A confiança de investidores vem caindo, o real permanece instável, a inflação pressiona o consumo e o país continua com altos índices de desemprego e desigualdade. Programas anunciados como soluções sociais não têm mostrado resultados concretos, enquanto a máquina pública cresce sem controle. A insistência em políticas ultrapassadas, o excesso de burocracia e a tentativa constante de controle estatal sobre setores produtivos alimentam um ambiente hostil para quem quer produzir ou empreender. Para muitos, o governo de Luiz Inácio Lula da Silva não está apenas repetindo os erros do passado — está acelerando o processo de deterioração da economia nacional. Se esse caminho continuar, o país poderá enfrentar um ciclo prolongado de estagnação, desindustrialização e aumento da pobreza, com impactos duradouros na vida de milhões de brasileiros.</p>
     </section>
