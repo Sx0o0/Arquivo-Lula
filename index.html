@@ -4,169 +4,99 @@
   <title>PT em Mate</title>
   <link rel="icon" type="image/ico" href="favicon.ico">
   <style>
-    /* Corpo do site */
     body {
       margin: 0;
       padding: 0;
       background-color: #dd0000;
       font-family: 'Arial', sans-serif;
       overflow-x: hidden;
-      color: #222;
+      animation: fadeInBody 1.2s ease-in;
+    }
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    /* Topo */
-    .container-topo {
-      position: relative;
-      z-index: 1002;
-    }
-
+    /* Faixa superior aprimorada */
     .faixa-topo {
       background-color: #dd0000;
-      height: 110px;
+      height: 100px;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      z-index: 1002;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      animation: slideDown 1s ease-out;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .faixa-topo h1 {
       color: white;
-      font-size: 50px;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
       margin: 0;
+      font-size: 52px;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+      z-index: 1002;
+      animation: fadeInText 2s ease;
+    }
+    @keyframes fadeInText {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .imagem-sobre-faixa {
       position: absolute;
       top: 10px;
-      left: 15px;
-      height: 90px;
+      left: 10px;
+      height: 80px;
+      z-index: 1003;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      animation: fadeIn 1.5s ease-in;
     }
 
-    /* Menu hambúrguer */
     .menu-hamburguer {
       position: absolute;
-      top: 40px;
-      right: 25px;
-      width: 35px;
-      height: 28px;
+      top: 35px;
+      right: 20px;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      z-index: 1100;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      cursor: pointer;
-      z-index: 1100;
       transition: transform 0.3s ease;
     }
-    .menu-hamburguer:hover { transform: scale(1.1); }
+    .menu-hamburguer:hover {
+      transform: scale(1.1);
+    }
     .menu-hamburguer div {
-      height: 5px;
+      height: 4px;
       background-color: white;
-      border-radius: 3px;
+      border-radius: 2px;
     }
 
-    /* Sidebar */
-    .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      background: linear-gradient(160deg, rgba(255,255,255,0.95), rgba(230,230,230,0.95));
-      backdrop-filter: blur(10px);
-      overflow-x: hidden;
-      transition: 0.4s ease;
-      padding-top: 100px;
-      z-index: 1050;
-      box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-      display: flex;
-      flex-direction: column;
-    }
-    .sidebar h2 {
-      margin-left: 40px;
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 30px;
-      color: #222;
-    }
-    .sidebar a {
-      padding: 15px 40px;
-      text-decoration: none;
-      font-size: 20px;
-      color: #222;
-      transition: all 0.3s ease;
-    }
-    .sidebar a:hover {
-      background-color: rgba(200,0,0,0.1);
-      padding-left: 50px;
-      color: #dd0000;
-      font-weight: bold;
-    }
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 30px;
-      color: black;
-      cursor: pointer;
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
-    .close-btn:hover {
-      transform: rotate(90deg);
-      color: #dd0000;
-    }
-
-    /* Conteúdo */
+    /* Conteúdo principal */
     .conteudo {
-      max-width: 1100px;
-      background: white;
-      margin: 50px auto 90px auto;
+      background-color: white;
+      max-width: 1000px;
+      margin: 50px auto 80px auto;
       padding: 50px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    /* Imagens */
-    .imagem-central-abaixo, .imagem-final, .imagem-aba {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 35px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
       position: relative;
-    }
-    .imagem-central-abaixo img, .imagem-final img, .imagem-aba img {
-      width: 500px;
-      max-width: 90%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-    }
-    .imagem-central-abaixo img:hover,
-    .imagem-final img:hover,
-    .imagem-aba img:hover { transform: scale(1.05); }
-
-    /* Textos sobre imagens */
-    .texto-sobre-imagem, .texto-sobre-imagem-final, .texto-sobre-imagem-aba {
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: white;
-      padding: 12px 22px;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 18px;
-      text-align: center;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      z-index: 1010;
+      animation: fadeIn 1s ease;
     }
 
-    /* Parágrafos */
     p {
       line-height: 1.7;
       margin-bottom: 22px;
@@ -174,32 +104,69 @@
 
     .destaque {
       font-weight: bold;
-      margin-top: 25px;
-      font-size: 18px;
+      margin-top: 30px;
+      font-size: 1.15em;
+      color: #b50000;
     }
 
-    /* Seções */
     section {
       display: none;
       opacity: 0;
       transform: translateY(20px);
-      transition: all 0.6s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
     section.active {
       display: block;
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Imagens com sombra e efeito hover */
+    .imagem-central-abaixo img, 
+    .imagem-final img, 
+    .imagem-aba img {
+      width: 500px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .imagem-central-abaixo img:hover,
+    .imagem-final img:hover,
+    .imagem-aba img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    /* Textos sobre imagens */
+    .texto-sobre-imagem, .texto-sobre-imagem-final, .texto-sobre-imagem-aba {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(51,51,51,0.9);
+      color: white;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+      z-index: 10;
+    }
   </style>
 </head>
 <body>
-
   <div class="container-topo">
     <img src="pt1.png" alt="Logo" class="imagem-sobre-faixa">
+
     <div class="faixa-topo">
       <h1>PT em Mate</h1>
       <div class="menu-hamburguer" onclick="toggleSidebar()">
-        <div></div><div></div><div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
   </div>
@@ -214,8 +181,79 @@
     <a href="#" onclick="playSound()">???</a>
   </div>
 
+  <style>
+    /* Sidebar melhorada */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background: linear-gradient(160deg, rgba(255,255,255,0.95), rgba(240,240,240,0.95));
+      backdrop-filter: blur(8px);
+      overflow-x: hidden;
+      transition: width 0.4s ease;
+      padding-top: 80px;
+      z-index: 1050;
+      box-shadow: -4px 0 16px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 20px 40px;
+      font-size: 26px;
+      color: #222;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .sidebar a {
+      padding: 15px 40px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #222;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+      font-weight: 500;
+      border-radius: 8px;
+    }
+
+    .sidebar a:hover {
+      background-color: rgba(200,0,0,0.1);
+      padding-left: 50px;
+      color: #dd0000;
+      font-weight: bold;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 32px;
+      color: black;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1100;
+      font-weight: bold;
+      line-height: 1;
+      transition: transform 0.4s ease, color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      transform: rotate(90deg);
+      color: #dd0000;
+    }
+  </style>
   <div class="conteudo">
-    <!-- Home -->
+
+    <!-- Seção Home -->
     <section id="home" class="active">
       <div class="imagem-central-abaixo">
         <img src="LULA-BANDEIRA-PT-2022-01.webp" alt="Imagem Central">
@@ -223,14 +261,14 @@
       </div>
       <p>Luiz Inácio Lula da Silva é um político brasileiro e um dos fundadores do Partido dos Trabalhadores (PT). Foi presidente do Brasil entre 2003 e 2010 e voltou ao cargo em 2023, após um período marcado por controvérsias. Durante seus mandatos, implementou programas sociais que geraram impactos variados na sociedade, ao mesmo tempo em que enfrentou críticas relacionadas à gestão econômica e a casos de corrupção envolvendo membros de seu partido e aliados. Sua trajetória política é marcada por fortes polarizações, e ele também enfrentou diversos processos judiciais que dividiram opiniões no país. Antes de ingressar na política formal, atuou como líder sindical, tendo um papel importante nas mobilizações trabalhistas dos anos 70 e 80.</p>
       <p class="destaque">O Ato de Corrupção na Política Brasileira:</p>
-      <p>A corrupção é um fenômeno antigo e recorrente na história política do Brasil, manifestando-se de diversas formas ao longo das décadas. No contexto político, ela envolve o uso indevido do poder público para obtenção de vantagens pessoais ou em benefício de terceiros. Isso pode incluir subornos, desvio de verbas públicas, fraudes em licitações, tráfico de influência, lavagem de dinheiro, entre outras práticas ilegais. Tais atos comprometem a integridade das institucões, minam a confiança da população e prejudicam diretamente o funcionamento do Estado.</p>
+      <p>A corrupção é um fenômeno antigo e recorrente na história política do Brasil, manifestando-se de diversas formas ao longo das décadas. No contexto político, ela envolve o uso indevido do poder público para obtenção de vantagens pessoais ou em benefício de terceiros. Isso pode incluir subornos, desvio de verbas públicas, fraudes em licitações, tráfico de influência, lavagem de dinheiro, entre outras práticas ilegais. Tais atos comprometem a integridade das instituições, minam a confiança da população e prejudicam diretamente o funcionamento do Estado.</p>
       <p>Ao longo dos anos, diversos escândalos de corrupção vieram à tona, envolvendo agentes públicos de diferentes esferas de governo. Casos amplamente divulgados, como o Mensalão e a Operação Lava Jato, revelaram esquemas complexos de desvio de recursos públicos e financiamento ilegal de campanhas políticas. Esses escândalos mostraram como empresas privadas, órgãos públicos e lideranças políticas podem se envolver em redes de corrupção estruturadas e sistemáticas, muitas vezes contando com a participação de figuras influentes e altos funcionários.</p>
       <p>O impacto da corrupção é profundo e duradouro. Recursos que deveriam ser destinados a áreas essenciais como saúde, educação, transporte e segurança acabam sendo desviados, prejudicando milhões de cidadãos, especialmente os mais vulneráveis. Além disso, o clima de impunidade — muitas vezes alimentado por falhas no sistema judiciário, lentidão nos processos e brechas legais — reforça a percepção de que a corrupção é uma prática comum e aceita nos bastidores do poder.</p>
       <p>Apesar dos avanços em mecanismos de investigação e fiscalização, como o fortalecimento de órgãos como o Ministério Público, a Polícia Federal e os tribunais de contas, o combate à corrupção continua sendo um grande desafio. A complexidade dos esquemas, a influência política e a resistência a mudanças estruturais dificultam a efetividade das ações corretivas e preventivas.</p>
       <p>Portanto, o ato de corrupção na política brasileira não pode ser visto como um problema isolado ou pontual, mas como parte de um sistema que requer reformas profundas, transparência e participação ativa da sociedade civil para ser transformado. A luta contra a corrupção é essencial para o fortalecimento da democracia e para a construção de um país mais justo, com instituições que funcionem de forma ética e em benefício de todos.</p>
     </section>
 
-    <!-- Sobre -->
+    <!-- Seção Sobre -->
     <section id="sobre">
       <div class="imagem-final">
         <img src="lei.jpeg" alt="Imagem Final">
@@ -240,23 +278,22 @@
       <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein, AliExpress, Shopee e outras, afetou diretamente milhões de brasileiros que buscavam alternativas mais acessíveis para o consumo próprio ou para manter pequenos negócios informais. A justificativa usada foi a de proteger o comércio nacional e garantir uma "concorrência justa", mas, na prática, a medida representou um aumento significativo no custo de vida da população de baixa e média renda. Produtos que antes custavam R$ 50 agora ultrapassam os R$ 100 com os tributos, ICMS e taxas adicionais. Pequenos empreendedores, que dependiam da importação para revenda, viram seus lucros desaparecerem. A decisão ignorou completamente a realidade econômica de um país onde a informalidade e o empreendedorismo digital são muitas vezes o único meio de sobrevivência para quem está fora do mercado de trabalho formal. Em vez de apoiar essas iniciativas, o governo optou por sufocá-las com mais impostos, atingindo justamente quem mais precisa de acesso a preços baixos e oportunidades de renda.</p>
       <p>No cenário mais amplo, o atual governo tem sido acusado de agravar os problemas estruturais da economia brasileira com medidas intervencionistas, aumento do gasto público e ausência de reformas relevantes. A confiança de investidores vem caindo, o real permanece instável, a inflação pressiona o consumo e o país continua com altos índices de desemprego e desigualdade. Programas anunciados como soluções sociais não têm mostrado resultados concretos, enquanto a máquina pública cresce sem controle. A insistência em políticas ultrapassadas, o excesso de burocracia e a tentativa constante de controle estatal sobre setores produtivos alimentam um ambiente hostil para quem quer produzir ou empreender. Para muitos, o governo de Luiz Inácio Lula da Silva não está apenas repetindo os erros do passado — está acelerando o processo de deterioração da economia nacional. Se esse caminho continuar, o país poderá enfrentar um ciclo prolongado de estagnação, desindustrialização e aumento da pobreza, com impactos duradouros na vida de milhões de brasileiros.</p>
     </section>
-
-    <!-- Aba1 -->
+    <!-- Seção Aba1 -->
     <section id="aba1">
       <div class="imagem-aba">
         <img src="aba1.jpeg" alt="Aba 1">
         <div class="texto-sobre-imagem-aba">Corrupção e escândalos envolvendo o PT</div>
       </div>
       <p>Durante os mandatos de Lula, o Brasil enfrentou diversos episódios de corrupção que envolveram diretamente membros do Partido dos Trabalhadores (PT) e aliados políticos. Entre os mais conhecidos, destacam-se o Mensalão, que revelou esquemas de compra de votos no Congresso, e a Operação Lava Jato, que expôs desvios bilionários em contratos com grandes empresas estatais. Esses casos evidenciam falhas graves na fiscalização e na ética governamental, colocando em xeque a transparência administrativa.</p>
-      <p class="destaque">Impacto na confiança pública:</p
-            <p>A consequência mais direta desses escândalos foi a perda de confiança da população nas instituições e nos representantes eleitos. A percepção de impunidade e a sensação de que políticos estariam acima da lei geraram descrédito generalizado, enfraquecendo a democracia e tornando mais difícil que políticas públicas fossem recebidas com legitimidade. Além disso, a repercussão internacional desses casos afetou a imagem do país, prejudicando negociações e investimentos externos.</p>
+      <p class="destaque">Impacto na confiança pública:</p>
+      <p>A consequência mais direta desses escândalos foi a perda de confiança da população nas instituições e nos representantes eleitos. A percepção de impunidade e a sensação de que políticos estariam acima da lei geraram descrédito generalizado, enfraquecendo a democracia e tornando mais difícil que políticas públicas fossem recebidas com legitimidade. Além disso, a repercussão internacional desses casos afetou a imagem do país, prejudicando negociações e investimentos externos.</p>
       <p class="destaque">Repercussões políticas:</p>
       <p>Politicamente, os escândalos abriram espaço para crises institucionais e polarização social. A oposição utilizou esses episódios como argumento para questionar a competência e a moralidade do governo, criando um clima de instabilidade e desconfiança que persistiu mesmo durante períodos de crescimento econômico. Isso demonstra que avanços sociais não são suficientes quando práticas ilegais e antiéticas minam a confiança da população.</p>
       <p class="destaque">Custos econômicos da corrupção:</p>
       <p>Além do impacto político e social, a corrupção provocou prejuízos financeiros diretos à população, desviando recursos que poderiam ser aplicados em saúde, educação e infraestrutura. Esse desvio comprometeu a eficiência do investimento público, mostrando que a corrupção não é apenas um problema moral, mas também um obstáculo real ao desenvolvimento econômico sustentável.</p>
     </section>
 
-    <!-- Aba2 -->
+    <!-- Seção Aba2 -->
     <section id="aba2">
       <div class="imagem-aba">
         <img src="aba2.jpeg" alt="Aba 2">
@@ -270,30 +307,50 @@
       <p class="destaque">Impacto sobre investimentos e empregos:</p>
       <p>A inflação também afeta o ambiente de negócios, tornando o planejamento financeiro de empresas mais incerto e desestimulando investimentos. Isso pode resultar em menor criação de empregos e em instabilidade no mercado de trabalho, mostrando que o aumento do custo de vida não prejudica apenas os consumidores, mas também a economia como um todo.</p>
     </section>
-
   </div>
-
   <audio id="soundEffect" src="vc-e-cringe-cringe-gado-e-gorel.mp3" preload="auto"></audio>
 
   <script>
+    // Alterna a sidebar com transição suave
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
-      sidebar.style.width = (sidebar.style.width === '280px') ? '0' : '280px';
+      if (sidebar.style.width === '280px') {
+        sidebar.style.width = '0';
+      } else {
+        sidebar.style.width = '280px';
+      }
     }
 
+    // Toca efeito sonoro
     function playSound() {
       const sound = document.getElementById('soundEffect');
+      sound.currentTime = 0; // reinicia o áudio caso esteja tocando
       sound.play();
     }
 
+    // Mostra a seção desejada
     function showSection(sectionId) {
-      toggleSidebar();
       const sections = document.querySelectorAll('section');
       sections.forEach(sec => sec.classList.remove('active'));
       const sectionToShow = document.getElementById(sectionId);
-      if (sectionToShow) sectionToShow.classList.add('active');
+      if (sectionToShow) {
+        sectionToShow.classList.add('active');
+      }
+      toggleSidebar(); // fecha a sidebar automaticamente
+      // Rola suavemente para o topo da seção
+      sectionToShow.scrollIntoView({ behavior: 'smooth' });
     }
-  </script>
 
-</body>
-</html>
+    // Adiciona efeito hover ao menu hambúrguer
+    const menu = document.querySelector('.menu-hamburguer');
+    menu.addEventListener('mouseenter', () => menu.style.transform = 'scale(1.1)');
+    menu.addEventListener('mouseleave', () => menu.style.transform = 'scale(1)');
+
+    // Fecha a sidebar ao clicar fora dela
+    window.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('sidebar');
+      if (!sidebar.contains(e.target) && e.target !== menu) {
+        sidebar.style.width = '0';
+      }
+    });
+  </script>
