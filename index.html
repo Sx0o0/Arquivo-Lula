@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arquivo Lula</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #dd0000; /* fundo vermelho */
+      font-family: 'Courier New', monospace;
+      overflow-x: hidden; /* evita barra horizontal ao abrir sidebar */
+    }
+
+    .container-topo {
+      position: relative;
+      z-index: 1002; /* acima da sidebar */
+    }
+
+    .faixa-topo {
+      background-color: #dd0000;
+      height: 100px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1002;
+    }
+
+    .imagem-sobre-faixa {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 80px;
+      z-index: 1003;
+    }
+
+    .faixa-topo h1 {
+      color: white;
+      margin: 0;
+      font-size: 50px;
+      font-family: Arial, sans-serif;
+      z-index: 1002;
+    }
+
+    /* Botão hamburguer no topo direito */
+    .menu-hamburguer {
+      position: absolute;
+      top: 35px;
+      right: 20px;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      z-index: 1100; /* acima de tudo */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-hamburguer div {
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    /* Sidebar menu */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #222;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1050;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .sidebar a {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    /* Botão fechar da sidebar */
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1100;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    /* Conteúdo branco centralizado */
+    .conteudo {
+      background-color: white;
+      max-width: 1000px;
+      margin: 40px auto 80px auto;
+      padding: 40px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      position: relative;
+      z-index: 1010; /* acima da sidebar */
+    }
+
+    .imagem-central-abaixo {
+      display: flex;
+      justify-content: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .imagem-central-abaixo img {
+      width: 500px;
+      height: auto;
+    }
+
+    .imagem-final {
+      display: flex;
+      justify-content: center;
+      margin: 50px 0 20px 0;
+    }
+
+    .imagem-final img {
+      width: 500px;
+      height: auto;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    /* Esconde as seções que não estiverem ativas */
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container-topo">
+    <img src="file:///home/chronos/u-b60911568da8e6ad2eba03dae09c3b201cf9433c/MyFiles/Downloads/pt1.png" alt="Logo" class="imagem-sobre-faixa">
+    
+    <div class="faixa-topo">
+      <h1>Arquivo Lula</h1>
+      <div class="menu-hamburguer" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+    <a href="#" onclick="showSection('home')">Corrupção na Política</a>
+    <a href="#" onclick="showSection('sobre')">Impostos e Crise Econômica</a>
+    <a href="#" onclick="playSound()">???</a>
+  </div>
+
+  <div class="conteudo">
+
+    <!-- Seção HOME -->
+    <section id="home" class="active">
+      <div class="imagem-central-abaixo">
+        <img src="file:///home/chronos/u-b60911568da8e6ad2eba03dae09c3b201cf9433c/MyFiles/Downloads/Arquivo%20Lula/img/LULA-BANDEIRA-PT-2022-01.webp" alt="Imagem Central">
+      </div>
+
+      <p><strong>Apresentação de Luiz Inácio Lula da Silva:</strong></p>
+      <p>Luiz Inácio Lula da Silva é um político brasileiro e um dos fundadores do Partido dos Trabalhadores (PT). Foi presidente do Brasil entre 2003 e 2010 e voltou ao cargo em 2023, após um período marcado por controvérsias. Durante seus mandatos, implementou programas sociais que geraram impactos variados na sociedade, ao mesmo tempo em que enfrentou críticas relacionadas à gestão econômica e a casos de corrupção envolvendo membros de seu partido e aliados. Sua trajetória política é marcada por fortes polarizações, e ele também enfrentou diversos processos judiciais que dividiram opiniões no país. Antes de ingressar na política formal, atuou como líder sindical, tendo um papel importante nas mobilizações trabalhistas dos anos 70 e 80.</p>
+      
+      <p><strong>O Ato de Corrupção na Política Brasileira:</strong></p>
+      <p>A corrupção é um fenômeno antigo e recorrente na história política do Brasil, manifestando-se de diversas formas ao longo das décadas. No contexto político, ela envolve o uso indevido do poder público para obtenção de vantagens pessoais ou em benefício de terceiros. Isso pode incluir subornos, desvio de verbas públicas, fraudes em licitações, tráfico de influência, lavagem de dinheiro, entre outras práticas ilegais. Tais atos comprometem a integridade das instituições, minam a confiança da população e prejudicam diretamente o funcionamento do Estado.</p>
+
+      <p>Ao longo dos anos, diversos escândalos de corrupção vieram à tona, envolvendo agentes públicos de diferentes esferas de governo. Casos amplamente divulgados, como o Mensalão e a Operação Lava Jato, revelaram esquemas complexos de desvio de recursos públicos e financiamento ilegal de campanhas políticas. Esses escândalos mostraram como empresas privadas, órgãos públicos e lideranças políticas podem se envolver em redes de corrupção estruturadas e sistemáticas, muitas vezes contando com a participação de figuras influentes e altos funcionários.</p>
+
+      <p>O impacto da corrupção é profundo e duradouro. Recursos que deveriam ser destinados a áreas essenciais como saúde, educação, transporte e segurança acabam sendo desviados, prejudicando milhões de cidadãos, especialmente os mais vulneráveis. Além disso, o clima de impunidade — muitas vezes alimentado por falhas no sistema judiciário, lentidão nos processos e brechas legais — reforça a percepção de que a corrupção é uma prática comum e aceita nos bastidores do poder.</p>
+
+      <p>Apesar dos avanços em mecanismos de investigação e fiscalização, como o fortalecimento de órgãos como o Ministério Público, a Polícia Federal e os tribunais de contas, o combate à corrupção continua sendo um grande desafio. A complexidade dos esquemas, a influência política e a resistência a mudanças estruturais dificultam a efetividade das ações corretivas e preventivas.</p>
+
+      <p>Portanto, o ato de corrupção na política brasileira não pode ser visto como um problema isolado ou pontual, mas como parte de um sistema que requer reformas profundas, transparência e participação ativa da sociedade civil para ser transformado. A luta contra a corrupção é essencial para o fortalecimento da democracia e para a construção de um país mais justo, com instituições que funcionem de forma ética e em benefício de todos.</p>
+    </section>
+
+    <!-- Seção SOBRE -->
+    <section id="sobre">
+      <div class="imagem-final">
+        <img src="file:///home/chronos/u-b60911568da8e6ad2eba03dae09c3b201cf9433c/MyFiles/Downloads/Arquivo%20Lula/img/lei.jpeg" alt="Imagem Final">
+      </div>
+
+      <p><strong>Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula:</strong></p>
+      <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein, AliExpress, Shopee e outras, afetou diretamente milhões de brasileiros que buscavam alternativas mais acessíveis para o consumo próprio ou para manter pequenos negócios informais. A justificativa usada foi a de proteger o comércio nacional e garantir uma “concorrência justa”, mas, na prática, a medida representou um aumento significativo no custo de vida da população de baixa e média renda. Produtos que antes custavam R$ 50 agora ultrapassam os R$ 100 com os tributos, ICMS e taxas adicionais. Pequenos empreendedores, que dependiam da importação para revenda, viram seus lucros desaparecerem. A decisão ignorou completamente a realidade econômica de um país onde a informalidade e o empreendedorismo digital são muitas vezes o único meio de sobrevivência para quem está fora do mercado de trabalho formal. Em vez de apoiar essas iniciativas, o governo optou por sufocá-las com mais impostos, atingindo justamente quem mais precisa de acesso a preços baixos e oportunidades de renda.</p>
+
+      <p>No cenário mais amplo, o atual governo tem sido acusado de agravar os problemas estruturais da economia brasileira com medidas intervencionistas, aumento do gasto público e ausência de reformas relevantes. A confiança de investidores vem caindo, o real permanece instável, a inflação pressiona o consumo e o país continua com altos índices de desemprego e desigualdade. Programas anunciados como soluções sociais não têm mostrado resultados concretos, enquanto a máquina pública cresce sem controle. A insistência em políticas ultrapassadas, o excesso de burocracia e a tentativa constante de controle estatal sobre setores produtivos alimentam um ambiente hostil para quem quer produzir ou empreender. Para muitos, o governo de Luiz Inácio Lula da Silva não está apenas repetindo os erros do passado — está acelerando o processo de deterioração da economia nacional. Se esse caminho continuar, o país poderá enfrentar um ciclo prolongado de estagnação, desindustrialização e aumento da pobreza, com impactos duradouros na vida de milhões de brasileiros.</p>
+    </section>
+
+  </div>
+
+  <audio id="soundEffect" src="file:///home/chronos/u-b60911568da8e6ad2eba03dae09c3b201cf9433c/MyFiles/Downloads/Arquivo%20Lula/aud/vc-e-cringe-cringe-gado-e-gorel.mp3" preload="auto"></audio>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar.style.width === '250px') {
+        sidebar.style.width = '0';
+      } else {
+        sidebar.style.width = '250px';
+      }
+    }
+
+    function playSound() {
+      const sound = document.getElementById('soundEffect');
+      sound.play();
+    }
+
+    function showSection(sectionId) {
+      toggleSidebar(); // fecha sidebar ao clicar
+
+      // Esconde todas as seções
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => {
+        sec.classList.remove('active');
+      });
+
+      // Mostra a seção selecionada
+      const sectionToShow = document.getElementById(sectionId);
+      if (sectionToShow) {
+        sectionToShow.classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+</html>
