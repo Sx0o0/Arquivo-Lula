@@ -10,10 +10,6 @@
       background-color: #dd0000;
       font-family: Arial, sans-serif;
       overflow-x: hidden;
-    }
-
-    /* Fade geral da página */
-    body {
       animation: fadeInBody 1.2s ease-in;
     }
     @keyframes fadeInBody {
@@ -80,46 +76,58 @@
     .menu-hamburguer:hover {
       transform: scale(1.1);
     }
-
     .menu-hamburguer div {
       height: 4px;
       background-color: white;
       border-radius: 2px;
     }
 
+    /* Sidebar aprimorada */
     .sidebar {
       height: 100%;
       width: 0;
       position: fixed;
       top: 0;
       right: 0;
-      background-color: #FFFFFF;
+      background: linear-gradient(160deg, rgba(255,255,255,0.95), rgba(230,230,230,0.95));
+      backdrop-filter: blur(8px);
       overflow-x: hidden;
       transition: 0.4s ease;
       padding-top: 60px;
       z-index: 1050;
-      box-shadow: -2px 0 8px rgba(0,0,0,0.5);
+      box-shadow: -4px 0 12px rgba(0,0,0,0.5);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
     }
 
     .sidebar a {
-      padding: 15px 30px;
+      padding: 15px 40px;
       text-decoration: none;
       font-size: 20px;
-      color: black;
-      display: block;
-      transition: background-color 0.3s, padding-left 0.3s;
+      color: #222;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
       cursor: pointer;
-      font-family: Arial, sans-serif;
       width: 100%;
       box-sizing: border-box;
+      font-weight: 500;
     }
-
+    .sidebar a::before {
+      content: "▶";
+      font-size: 14px;
+      transition: transform 0.3s;
+    }
+    .sidebar a:hover::before {
+      transform: translateX(6px);
+    }
     .sidebar a:hover {
-      background-color: #f1f1f1;
-      padding-left: 40px;
+      background-color: rgba(200,0,0,0.1);
+      padding-left: 50px;
+      color: #dd0000;
+      font-weight: bold;
     }
 
     .close-btn {
@@ -133,10 +141,11 @@
       z-index: 1100;
       font-weight: bold;
       line-height: 1;
-      transition: transform 0.2s ease;
+      transition: transform 0.4s ease;
     }
     .close-btn:hover {
       transform: rotate(90deg);
+      color: #dd0000;
     }
 
     .conteudo {
@@ -172,6 +181,7 @@
       height: auto;
       display: block;
       transition: transform 0.4s ease;
+      border-radius: 8px;
     }
     .imagem-central-abaixo img:hover,
     .imagem-final img:hover {
@@ -256,9 +266,19 @@
         <img src="LULA-BANDEIRA-PT-2022-01.webp" alt="Imagem Central">
         <div class="texto-sobre-imagem">Apresentação de Luiz Inácio Lula da Silva</div>
       </div>
-      <p>Luiz Inácio Lula da Silva é um político brasileiro...</p>
+
+      <p>Luiz Inácio Lula da Silva é um político brasileiro e um dos fundadores do Partido dos Trabalhadores (PT). Foi presidente do Brasil entre 2003 e 2010 e voltou ao cargo em 2023, após um período marcado por controvérsias. Durante seus mandatos, implementou programas sociais que geraram impactos variados na sociedade, ao mesmo tempo em que enfrentou críticas relacionadas à gestão econômica e a casos de corrupção envolvendo membros de seu partido e aliados. Sua trajetória política é marcada por fortes polarizações, e ele também enfrentou diversos processos judiciais que dividiram opiniões no país. Antes de ingressar na política formal, atuou como líder sindical, tendo um papel importante nas mobilizações trabalhistas dos anos 70 e 80.</p>
+      
       <p class="destaque">O Ato de Corrupção na Política Brasileira:</p>
-      <p>A corrupção é um fenômeno antigo e recorrente...</p>
+      <p>A corrupção é um fenômeno antigo e recorrente na história política do Brasil, manifestando-se de diversas formas ao longo das décadas. No contexto político, ela envolve o uso indevido do poder público para obtenção de vantagens pessoais ou em benefício de terceiros. Isso pode incluir subornos, desvio de verbas públicas, fraudes em licitações, tráfico de influência, lavagem de dinheiro, entre outras práticas ilegais. Tais atos comprometem a integridade das institucões, minam a confiança da população e prejudicam diretamente o funcionamento do Estado.</p>
+
+      <p>Ao longo dos anos, diversos escândalos de corrupção vieram à tona, envolvendo agentes públicos de diferentes esferas de governo. Casos amplamente divulgados, como o Mensalão e a Operação Lava Jato, revelaram esquemas complexos de desvio de recursos públicos e financiamento ilegal de campanhas políticas. Esses escândalos mostraram como empresas privadas, órgãos públicos e lideranças políticas podem se envolver em redes de corrupção estruturadas e sistemáticas, muitas vezes contando com a participação de figuras influentes e altos funcionários.</p>
+
+      <p>O impacto da corrupção é profundo e duradouro. Recursos que deveriam ser destinados a áreas essenciais como saúde, educação, transporte e segurança acabam sendo desviados, prejudicando milhões de cidadãos, especialmente os mais vulneráveis. Além disso, o clima de impunidade — muitas vezes alimentado por falhas no sistema judiciário, lentidão nos processos e brechas legais — reforça a percepção de que a corrupção é uma prática comum e aceita nos bastidores do poder.</p>
+
+      <p>Apesar dos avanços em mecanismos de investigação e fiscalização, como o fortalecimento de órgãos como o Ministério Público, a Polícia Federal e os tribunais de contas, o combate à corrupção continua sendo um grande desafio. A complexidade dos esquemas, a influência política e a resistência a mudanças estruturais dificultam a efetividade das ações corretivas e preventivas.</p>
+
+      <p>Portanto, o ato de corrupção na política brasileira não pode ser visto como um problema isolado ou pontual, mas como parte de um sistema que requer reformas profundas, transparência e participação ativa da sociedade civil para ser transformado. A luta contra a corrupção é essencial para o fortalecimento da democracia e para a construção de um país mais justo, com instituições que funcionem de forma ética e em benefício de todos.</p>
     </section>
 
     <section id="sobre">
@@ -266,8 +286,11 @@
         <img src="lei.jpeg" alt="Imagem Final">
         <div class="texto-sobre-imagem-final">Impostos e Crise Econômica</div>
       </div>
-      <p class="destaque">Crítica aos Impostos sobre Produtos da China...</p>
-      <p>A decisão do governo Lula de aplicar impostos...</p>
+
+      <p class="destaque">Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula:</p>
+      <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein, AliExpress, Shopee e outras, afetou diretamente milhões de brasileiros que buscavam alternativas mais acessíveis para o consumo próprio ou para manter pequenos negócios informais. A justificativa usada foi a de proteger o comércio nacional e garantir uma "concorrência justa", mas, na prática, a medida representou um aumento significativo no custo de vida da população de baixa e média renda. Produtos que antes custavam R$ 50 agora ultrapassam os R$ 100 com os tributos, ICMS e taxas adicionais. Pequenos empreendedores, que dependiam da importação para revenda, viram seus lucros desaparecerem. A decisão ignorou completamente a realidade econômica de um país onde a informalidade e o empreendedorismo digital são muitas vezes o único meio de sobrevivência para quem está fora do mercado de trabalho formal. Em vez de apoiar essas iniciativas, o governo optou por sufocá-las com mais impostos, atingindo justamente quem mais precisa de acesso a preços baixos e oportunidades de renda.</p>
+
+      <p>No cenário mais amplo, o atual governo tem sido acusado de agravar os problemas estruturais da economia brasileira com medidas intervencionistas, aumento do gasto público e ausência de reformas relevantes. A confiança de investidores vem caindo, o real permanece instável, a inflação pressiona o consumo e o país continua com altos índices de desemprego e desigualdade. Programas anunciados como soluções sociais não têm mostrado resultados concretos, enquanto a máquina pública cresce sem controle. A insistência em políticas ultrapassadas, o excesso de burocracia e a tentativa constante de controle estatal sobre setores produtivos alimentam um ambiente hostil para quem quer produzir ou empreender. Para muitos, o governo de Luiz Inácio Lula da Silva não está apenas repetindo os erros do passado — está acelerando o processo de deterioração da economia nacional. Se esse caminho continuar, o país poderá enfrentar um ciclo prolongado de estagnação, desindustrialização e aumento da pobreza, com impactos duradouros na vida de milhões de brasileiros.</p>
     </section>
 
   </div>
@@ -277,7 +300,7 @@
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
-      sidebar.style.width = (sidebar.style.width === '250px') ? '0' : '250px';
+      sidebar.style.width = (sidebar.style.width === '280px') ? '0' : '280px';
     }
 
     function playSound() {
