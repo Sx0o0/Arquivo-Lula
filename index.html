@@ -6,14 +6,14 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #dd0000; /* fundo vermelho */
+      background-color: #dd0000;
       font-family: 'Courier New', monospace;
-      overflow-x: hidden; /* evita barra horizontal ao abrir sidebar */
+      overflow-x: hidden;
     }
 
     .container-topo {
       position: relative;
-      z-index: 1002; /* acima da sidebar */
+      z-index: 1002;
     }
 
     .faixa-topo {
@@ -43,7 +43,6 @@
       z-index: 1002;
     }
 
-    /* Botão hamburguer no topo direito */
     .menu-hamburguer {
       position: absolute;
       top: 35px;
@@ -51,7 +50,7 @@
       width: 30px;
       height: 25px;
       cursor: pointer;
-      z-index: 1100; /* acima de tudo */
+      z-index: 1100;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -63,7 +62,6 @@
       border-radius: 2px;
     }
 
-    /* Sidebar menu */
     .sidebar {
       height: 100%;
       width: 0;
@@ -98,7 +96,6 @@
       background-color: #575757;
     }
 
-    /* Botão fechar da sidebar */
     .close-btn {
       position: absolute;
       top: 15px;
@@ -112,7 +109,6 @@
       line-height: 1;
     }
 
-    /* Conteúdo branco centralizado */
     .conteudo {
       background-color: white;
       max-width: 1000px;
@@ -121,7 +117,7 @@
       box-sizing: border-box;
       border-radius: 4px;
       position: relative;
-      z-index: 1010; /* acima da sidebar */
+      z-index: 1010;
     }
 
     .imagem-central-abaixo {
@@ -151,7 +147,6 @@
       line-height: 1.6;
     }
 
-    /* Esconde as seções que não estiverem ativas */
     section {
       display: none;
     }
@@ -163,7 +158,7 @@
 <body>
 
   <div class="container-topo">
-    <img src="file:///home/chronos/u-b60911568da8e6ad2eba03dae09c3b201cf9433c/MyFiles/Downloads/pt1.png" alt="Logo" class="imagem-sobre-faixa">
+    <img src="pt1.png" alt="Logo" class="imagem-sobre-faixa">
     
     <div class="faixa-topo">
       <h1>Arquivo Lula</h1>
@@ -184,10 +179,9 @@
 
   <div class="conteudo">
 
-    <!-- Seção HOME -->
     <section id="home" class="active">
       <div class="imagem-central-abaixo">
-        <img src="file:///home/chronos/u-b60911568da8e6ad2eba03dae09c3b201cf9433c/MyFiles/Downloads/Arquivo%20Lula/img/LULA-BANDEIRA-PT-2022-01.webp" alt="Imagem Central">
+        <img src="LULA-BANDEIRA-PT-2022-01.webp" alt="Imagem Central">
       </div>
 
       <p><strong>Apresentação de Luiz Inácio Lula da Silva:</strong></p>
@@ -205,10 +199,9 @@
       <p>Portanto, o ato de corrupção na política brasileira não pode ser visto como um problema isolado ou pontual, mas como parte de um sistema que requer reformas profundas, transparência e participação ativa da sociedade civil para ser transformado. A luta contra a corrupção é essencial para o fortalecimento da democracia e para a construção de um país mais justo, com instituições que funcionem de forma ética e em benefício de todos.</p>
     </section>
 
-    <!-- Seção SOBRE -->
     <section id="sobre">
       <div class="imagem-final">
-        <img src="file:///home/chronos/u-b60911568da8e6ad2eba03dae09c3b201cf9433c/MyFiles/Downloads/Arquivo%20Lula/img/lei.jpeg" alt="Imagem Final">
+        <img src="lei.jpeg" alt="Imagem Final">
       </div>
 
       <p><strong>Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula:</strong></p>
@@ -219,7 +212,7 @@
 
   </div>
 
-  <audio id="soundEffect" src="file:///home/chronos/u-b60911568da8e6ad2eba03dae09c3b201cf9433c/MyFiles/Downloads/Arquivo%20Lula/aud/vc-e-cringe-cringe-gado-e-gorel.mp3" preload="auto"></audio>
+  <audio id="soundEffect" src="vc-e-cringe-cringe-gado-e-gorel.mp3" preload="auto"></audio>
 
   <script>
     function toggleSidebar() {
@@ -237,15 +230,13 @@
     }
 
     function showSection(sectionId) {
-      toggleSidebar(); // fecha sidebar ao clicar
+      toggleSidebar();
 
-      // Esconde todas as seções
       const sections = document.querySelectorAll('section');
       sections.forEach(sec => {
         sec.classList.remove('active');
       });
 
-      // Mostra a seção selecionada
       const sectionToShow = document.getElementById(sectionId);
       if (sectionToShow) {
         sectionToShow.classList.add('active');
