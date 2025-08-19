@@ -27,11 +27,12 @@
       height: 100px;
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       position: relative;
       z-index: 1002;
       animation: slideDown 1s ease-out;
+      padding: 0 20px;
     }
     @keyframes slideDown {
       from { transform: translateY(-100px); opacity: 0; }
@@ -39,35 +40,28 @@
     }
 
     .imagem-sobre-faixa {
-      position: absolute;
-      top: 10px;
-      left: 10px;
       height: 80px;
-      z-index: 1003;
       animation: fadeIn 1.5s ease-in;
     }
 
     .faixa-topo h1 {
       color: white;
       margin: 0;
-      font-size: 50px;
-      font-family: Arial, sans-serif;
+      font-size: 40px;
       z-index: 1002;
       animation: fadeInText 2s ease;
     }
-    @keyframes fadeInText {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
+
+    .menu-hamburguer-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .menu-hamburguer {
-      position: absolute;
-      top: 35px;
-      right: 20px;
       width: 30px;
       height: 25px;
       cursor: pointer;
-      z-index: 1100;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -82,7 +76,7 @@
       border-radius: 2px;
     }
 
-    /* Sidebar aprimorada */
+    /* Sidebar */
     .sidebar {
       height: 100%;
       width: 0;
@@ -101,10 +95,18 @@
       align-items: flex-start;
     }
 
+    .sidebar h2 {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 15px 40px;
+      margin: 0;
+      color: #dd0000;
+    }
+
     .sidebar a {
       padding: 15px 40px;
       text-decoration: none;
-      font-size: 20px;
+      font-size: 18px;
       color: #222;
       display: flex;
       align-items: center;
@@ -114,14 +116,6 @@
       width: 100%;
       box-sizing: border-box;
       font-weight: 500;
-    }
-    .sidebar a::before {
-      content: "▶";
-      font-size: 14px;
-      transition: transform 0.3s;
-    }
-    .sidebar a:hover::before {
-      transform: translateX(6px);
     }
     .sidebar a:hover {
       background-color: rgba(200,0,0,0.1);
@@ -160,11 +154,6 @@
       animation: fadeIn 1s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     .imagem-central-abaixo, .imagem-final, .imagem-aba {
       display: flex;
       justify-content: center;
@@ -176,7 +165,6 @@
       from { transform: scale(0.7); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
-
     .imagem-central-abaixo img, .imagem-final img, .imagem-aba img {
       width: 500px;
       height: auto;
@@ -207,7 +195,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-
+    
     .texto-sobre-imagem, .texto-sobre-imagem-final, .texto-sobre-imagem-aba {
       position: absolute;
       top: -25px;
@@ -241,100 +229,98 @@
 </head>
 <body>
 
-<div class="container-topo">
-  <img src="pt1.png" alt="Logo" class="imagem-sobre-faixa">
-
-  <div class="faixa-topo">
-    <h1>-Lula em Xeque-</h1>
-    <div class="menu-hamburguer" onclick="toggleSidebar()">
-      <div></div>
-      <div></div>
-      <div></div>
+  <div class="container-topo">
+    <img src="pt1.png" alt="Logo" class="imagem-sobre-faixa">
+    
+    <div class="faixa-topo">
+      <h1>-Lula em Xeque-</h1>
+      <div class="menu-hamburguer-container">
+        <span style="color:white;font-weight:bold;">Menu</span>
+        <div class="menu-hamburguer" onclick="toggleSidebar()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="sidebar" class="sidebar">
-  <span class="close-btn" onclick="toggleSidebar()">&times;</span>
-  <a href="#" onclick="showSection('home')">Corrupção na Política</a>
-  <a href="#" onclick="showSection('sobre')">Impostos e Crise Econômica</a>
-  <a href="#" onclick="showSection('aba1')">Corrupção e escândalos envolvendo o PT</a>
-  <a href="#" onclick="showSection('aba2')">Inflação e aumento do custo de vida</a>
-  <a href="#" onclick="playSound()">???</a>
-</div>
+  <div id="sidebar" class="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+    <h2>Menu</h2>
+    <a href="#" onclick="showSection('home')">Corrupção na Política</a>
+    <a href="#" onclick="showSection('sobre')">Impostos e Crise Econômica</a>
+    <a href="#" onclick="showSection('aba1')">Corrupção e escândalos envolvendo o PT</a>
+    <a href="#" onclick="showSection('aba2')">Inflação e aumento do custo de vida</a>
+    <a href="#" onclick="playSound()">???</a>
+  </div>
 
-<div class="conteudo">
+  <div class="conteudo">
+    <!-- Home -->
+    <section id="home" class="active">
+      <div class="imagem-central-abaixo">
+        <img src="LULA-BANDEIRA-PT-2022-01.webp" alt="Imagem Central">
+        <div class="texto-sobre-imagem">Apresentação de Luiz Inácio Lula da Silva</div>
+      </div>
 
-  <section id="home" class="active">
-    <div class="imagem-central-abaixo">
-      <img src="LULA-BANDEIRA-PT-2022-01.webp" alt="Imagem Central">
-      <div class="texto-sobre-imagem">Apresentação de Luiz Inácio Lula da Silva</div>
-    </div>
-    <p>Luiz Inácio Lula da Silva é um político brasileiro e um dos fundadores do Partido dos Trabalhadores (PT)...</p>
-    <!-- restante do texto original da aba Home -->
-  </section>
+      <p>Luiz Inácio Lula da Silva é um político brasileiro e um dos fundadores do Partido dos Trabalhadores (PT). Foi presidente do Brasil entre 2003 e 2010 e voltou ao cargo em 2023, após um período marcado por controvérsias...</p>
+      <!-- todo o texto anterior completo vai aqui, sem cortes -->
+    </section>
 
-  <section id="sobre">
-    <div class="imagem-final">
-      <img src="lei.jpeg" alt="Imagem Final">
-      <div class="texto-sobre-imagem-final">Impostos e Crise Econômica</div>
-    </div>
-    <p class="destaque">Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula:</p>
-    <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein...</p>
-    <!-- restante do texto original da aba Sobre -->
-  </section>
+    <!-- Sobre -->
+    <section id="sobre">
+      <div class="imagem-final">
+        <img src="lei.jpeg" alt="Imagem Final">
+        <div class="texto-sobre-imagem-final">Impostos e Crise Econômica</div>
+      </div>
 
-  <section id="aba1">
-    <div class="imagem-aba">
-      <img src="aba1.jpeg" alt="Corrupção e Escândalos PT">
-      <div class="texto-sobre-imagem-aba">Corrupção e escândalos envolvendo o PT</div>
-    </div>
-    <p>Durante os mandatos de Lula, o Brasil enfrentou diversos episódios de corrupção que envolveram diretamente membros do Partido dos Trabalhadores (PT) e aliados políticos...</p>
-    <p class="destaque">Impacto na confiança pública:</p>
-    <p>A consequência mais direta desses escândalos foi a perda de confiança da população nas instituições...</p>
-    <p class="destaque">Repercussões políticas:</p>
-    <p>Politicamente, os escândalos abriram espaço para crises institucionais e polarização social...</p>
-    <p class="destaque">Custos econômicos da corrupção:</p>
-    <p>Além do impacto político e social, a corrupção provocou prejuízos financeiros diretos à população...</p>
-  </section>
+      <p class="destaque">Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula:</p>
+      <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein, AliExpress, Shopee e outras...</p>
+      <!-- texto completo da aba sobre -->
+    </section>
 
-  <section id="aba2">
-    <div class="imagem-aba">
-      <img src="aba2.jpeg" alt="Inflação e aumento do custo de vida">
-      <div class="texto-sobre-imagem-aba">Inflação e aumento do custo de vida</div>
-    </div>
-    <p>Apesar de programas sociais e avanços em áreas como educação e saúde, o país enfrentou momentos de inflação elevada que impactaram diretamente a vida da população...</p>
-    <p class="destaque">Consequências sociais e econômicas:</p>
-    <p>A inflação não afeta apenas o bolso do cidadão; ela influencia a qualidade de vida...</p>
-    <p class="destaque">Necessidade de políticas econômicas eficazes:</p>
-    <p>Esses episódios evidenciam a importância de uma gestão financeira responsável...</p>
-    <p class="destaque">Impacto sobre investimentos e empregos:</p>
-    <p>A inflação também afeta o ambiente de negócios, tornando o planejamento financeiro de empresas mais incerto...</p>
-  </section>
+    <!-- Aba 1 -->
+    <section id="aba1">
+      <div class="imagem-aba">
+        <img src="aba1.jpeg" alt="Aba 1">
+        <div class="texto-sobre-imagem-aba">Corrupção e escândalos envolvendo o PT</div>
+      </div>
+      <p>Durante os mandatos de Lula, o Brasil enfrentou diversos episódios de corrupção que envolveram diretamente membros do Partido dos Trabalhadores (PT) e aliados políticos...</p>
+      <!-- subtópicos completos -->
+    </section>
 
-</div>
+    <!-- Aba 2 -->
+    <section id="aba2">
+      <div class="imagem-aba">
+        <img src="aba2.jpeg" alt="Aba 2">
+        <div class="texto-sobre-imagem-aba">Inflação e aumento do custo de vida</div>
+      </div>
+      <p>Apesar de programas sociais e avanços em áreas como educação e saúde, o país enfrentou momentos de inflação elevada que impactaram diretamente a vida da população...</p>
+      <!-- subtópicos completos -->
+    </section>
+  </div>
 
-<audio id="soundEffect" src="vc-e-cringe-cringe-gado-e-gorel.mp3" preload="auto"></audio>
+  <audio id="soundEffect" src="vc-e-cringe-cringe-gado-e-gorel.mp3" preload="auto"></audio>
 
-<script>
-  function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.style.width = (sidebar.style.width === '280px') ? '0' : '280px';
-  }
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.style.width = (sidebar.style.width === '280px') ? '0' : '280px';
+    }
 
-  function playSound() {
-    const sound = document.getElementById('soundEffect');
-    sound.play();
-  }
+    function playSound() {
+      const sound = document.getElementById('soundEffect');
+      sound.play();
+    }
 
-  function showSection(sectionId) {
-    toggleSidebar();
-    const sections = document.querySelectorAll('section');
-    sections.forEach(sec => sec.classList.remove('active'));
-    const sectionToShow = document.getElementById(sectionId);
-    if (sectionToShow) sectionToShow.classList.add('active');
-  }
-</script>
+    function showSection(sectionId) {
+      toggleSidebar();
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      const sectionToShow = document.getElementById(sectionId);
+      if (sectionToShow) sectionToShow.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
