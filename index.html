@@ -83,8 +83,7 @@
     }
 
     .sidebar h2 {
-      margin-top: 10px;
-      margin-left: 40px;
+      margin: 10px 0 20px 40px;
       font-size: 24px;
       color: #222;
       font-weight: bold;
@@ -105,9 +104,9 @@
       font-weight: 500;
     }
     .sidebar a:hover {
-      background-color: rgba(200,0,0,0.1);
+      background-color: rgba(255,255,255,0.9);
+      color: #000;
       padding-left: 50px;
-      color: #dd0000;
       font-weight: bold;
     }
 
@@ -125,6 +124,57 @@
       transition: transform 0.4s ease;
     }
     .close-btn:hover { transform: rotate(90deg); color: #dd0000; }
+
+    .conteudo {
+      background-color: white;
+      max-width: 1000px;
+      margin: 40px auto 80px auto;
+      padding: 40px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      position: relative;
+      z-index: 1010;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    /* Centralização de imagens */
+    .imagem-central-abaixo, .imagem-final, .imagem-aba {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .imagem-central-abaixo img, .imagem-final img, .imagem-aba img {
+      max-width: 500px;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      transition: transform 0.4s ease;
+    }
+
+    /* Textos sobre imagens */
+    .texto-sobre-imagem,
+    .texto-sobre-imagem-final,
+    .texto-sobre-imagem-aba {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    p { line-height: 1.6; margin-bottom: 20px; }
+
+    .destaque { font-weight: bold; margin-top: 25px; }
   </style>
 </head>
 <body>
@@ -150,6 +200,7 @@
   <a href="#" onclick="showSection('aba2')">Inflação e aumento do custo de vida</a>
   <a href="#" onclick="playSound()">???</a>
 </div>
+
 <div class="conteudo">
 
   <!-- Seção Home -->
@@ -171,53 +222,56 @@
 
     <p>Portanto, o ato de corrupção na política brasileira não pode ser visto como um problema isolado ou pontual, mas como parte de um sistema que requer reformas profundas, transparência e participação ativa da sociedade civil para ser transformado. A luta contra a corrupção é essencial para o fortalecimento da democracia e para a construção de um país mais justo, com instituições que funcionem de forma ética e em benefício de todos.</p>
   </section>
-<!-- Seção Sobre -->
-<section id="sobre">
-  <div class="imagem-final">
-    <img src="lei.jpeg" alt="Imagem Final">
-    <div class="texto-sobre-imagem-final">Impostos e Crise Econômica</div>
-  </div>
-  <p class="destaque">Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula:</p>
-  <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein, AliExpress, Shopee e outras, afetou diretamente milhões de brasileiros que buscavam alternativas mais acessíveis para o consumo próprio ou para manter pequenos negócios informais. A justificativa usada foi a de proteger o comércio nacional e garantir uma "concorrência justa", mas, na prática, a medida representou um aumento significativo no custo de vida da população de baixa e média renda. Produtos que antes custavam R$ 50 agora ultrapassam os R$ 100 com os tributos, ICMS e taxas adicionais. Pequenos empreendedores, que dependiam da importação para revenda, viram seus lucros desaparecerem. A decisão ignorou completamente a realidade econômica de um país onde a informalidade e o empreendedorismo digital são muitas vezes o único meio de sobrevivência para quem está fora do mercado de trabalho formal. Em vez de apoiar essas iniciativas, o governo optou por sufocá-las com mais impostos, atingindo justamente quem mais precisa de acesso a preços baixos e oportunidades de renda.</p>
 
-  <p>No cenário mais amplo, o atual governo tem sido acusado de agravar os problemas estruturais da economia brasileira com medidas intervencionistas, aumento do gasto público e ausência de reformas relevantes. A confiança de investidores vem caindo, o real permanece instável, a inflação pressiona o consumo e o país continua com altos índices de desemprego e desigualdade. Programas anunciados como soluções sociais não têm mostrado resultados concretos, enquanto a máquina pública cresce sem controle. A insistência em políticas ultrapassadas, o excesso de burocracia e a tentativa constante de controle estatal sobre setores produtivos alimentam um ambiente hostil para quem quer produzir ou empreender. Para muitos, o governo de Luiz Inácio Lula da Silva não está apenas repetindo os erros do passado — está acelerando o processo de deterioração da economia nacional. Se esse caminho continuar, o país poderá enfrentar um ciclo prolongado de estagnação, desindustrialização e aumento da pobreza, com impactos duradouros na vida de milhões de brasileiros.</p>
-</section>
-<!-- Seção Aba1 -->
-<section id="aba1">
-  <div class="imagem-aba">
-    <img src="aba1.jpeg" alt="Aba 1">
-    <div class="texto-sobre-imagem-aba">Corrupção e escândalos envolvendo o PT</div>
-  </div>
-  <p>Durante os mandatos de Lula, o Brasil enfrentou diversos episódios de corrupção que envolveram diretamente membros do Partido dos Trabalhadores (PT) e aliados políticos. Entre os mais conhecidos, destacam-se o Mensalão, que revelou esquemas de compra de votos no Congresso, e a Operação Lava Jato, que expôs desvios bilionários em contratos com grandes empresas estatais. Esses casos evidenciam falhas graves na fiscalização e na ética governamental, colocando em xeque a transparência administrativa.</p>
+  <!-- Seção Sobre -->
+  <section id="sobre">
+    <div class="imagem-final">
+      <img src="lei.jpeg" alt="Imagem Final">
+      <div class="texto-sobre-imagem-final">Impostos e Crise Econômica</div>
+    </div>
+    <p class="destaque">Crítica aos Impostos sobre Produtos da China e os Impactos Econômicos do Governo Lula:</p>
+    <p>A decisão do governo Lula de aplicar impostos sobre compras internacionais de plataformas como Shein, AliExpress, Shopee e outras, afetou diretamente milhões de brasileiros que buscavam alternativas mais acessíveis para o consumo próprio ou para manter pequenos negócios informais. A justificativa usada foi a de proteger o comércio nacional e garantir uma "concorrência justa", mas, na prática, a medida representou um aumento significativo no custo de vida da população de baixa e média renda. Produtos que antes custavam R$ 50 agora ultrapassam os R$ 100 com os tributos, ICMS e taxas adicionais. Pequenos empreendedores, que dependiam da importação para revenda, viram seus lucros desaparecerem. A decisão ignorou completamente a realidade econômica de um país onde a informalidade e o empreendedorismo digital são muitas vezes o único meio de sobrevivência para quem está fora do mercado de trabalho formal. Em vez de apoiar essas iniciativas, o governo optou por sufocá-las com mais impostos, atingindo justamente quem mais precisa de acesso a preços baixos e oportunidades de renda.</p>
 
-  <p class="destaque">Impacto na confiança pública:</p>
-  <p>A consequência mais direta desses escândalos foi a perda de confiança da população nas instituições e nos representantes eleitos. A percepção de impunidade e a sensação de que políticos estariam acima da lei geraram descrédito generalizado, enfraquecendo a democracia e tornando mais difícil que políticas públicas fossem recebidas com legitimidade. Além disso, a repercussão internacional desses casos afetou a imagem do país, prejudicando negociações e investimentos externos.</p>
+    <p>No cenário mais amplo, o atual governo tem sido acusado de agravar os problemas estruturais da economia brasileira com medidas intervencionistas, aumento do gasto público e ausência de reformas relevantes. A confiança de investidores vem caindo, o real permanece instável, a inflação pressiona o consumo e o país continua com altos índices de desemprego e desigualdade. Programas anunciados como soluções sociais não têm mostrado resultados concretos, enquanto a máquina pública cresce sem controle. A insistência em políticas ultrapassadas, o excesso de burocracia e a tentativa constante de controle estatal sobre setores produtivos alimentam um ambiente hostil para quem quer produzir ou empreender. Para muitos, o governo de Luiz Inácio Lula da Silva não está apenas repetindo os erros do passado — está acelerando o processo de deterioração da economia nacional. Se esse caminho continuar, o país poderá enfrentar um ciclo prolongado de estagnação, desindustrialização e aumento da pobreza, com impactos duradouros na vida de milhões de brasileiros.</p>
+  </section>
 
-  <p class="destaque">Repercussões políticas:</p>
-  <p>Politicamente, os escândalos abriram espaço para crises institucionais e polarização social. A oposição utilizou esses episódios como argumento para questionar a competência e a moralidade do governo, criando um clima de instabilidade e desconfiança que persistiu mesmo durante períodos de crescimento econômico. Isso demonstra que avanços sociais não são suficientes quando práticas ilegais e antiéticas minam a confiança da população.</p>
+  <!-- Seção Aba1 -->
+  <section id="aba1">
+    <div class="imagem-aba">
+      <img src="aba1.jpeg" alt="Aba 1">
+      <div class="texto-sobre-imagem-aba">Corrupção e escândalos envolvendo o PT</div>
+    </div>
+    <p>Durante os mandatos de Lula, o Brasil enfrentou diversos episódios de corrupção que envolveram diretamente membros do Partido dos Trabalhadores (PT) e aliados políticos. Entre os mais conhecidos, destacam-se o Mensalão, que revelou esquemas de compra de votos no Congresso, e a Operação Lava Jato, que expôs desvios bilionários em contratos com grandes empresas estatais. Esses casos evidenciam falhas graves na fiscalização e na ética governamental, colocando em xeque a transparência administrativa.</p>
 
-  <p class="destaque">Custos econômicos da corrupção:</p>
-  <p>Além do impacto político e social, a corrupção provocou prejuízos financeiros diretos à população, desviando recursos que poderiam ser aplicados em saúde, educação e infraestrutura. Esse desvio comprometeu a eficiência do investimento público, mostrando que a corrupção não é apenas um problema moral, mas também um obstáculo real ao desenvolvimento econômico sustentável.</p>
-</section>
+    <p class="destaque">Impacto na confiança pública:</p>
+    <p>A consequência mais direta desses escândalos foi a perda de confiança da população nas instituições e nos representantes eleitos. A percepção de impunidade e a sensação de que políticos estariam acima da lei geraram descrédito generalizado, enfraquecendo a democracia e tornando mais difícil que políticas públicas fossem recebidas com legitimidade. Além disso, a repercussão internacional desses casos afetou a imagem do país, prejudicando negociações e investimentos externos.</p>
 
-<!-- Seção Aba2 -->
-<section id="aba2">
-  <div class="imagem-aba">
-    <img src="aba2.jpeg" alt="Aba 2">
-    <div class="texto-sobre-imagem-aba">Inflação e aumento do custo de vida</div>
-  </div>
-  <p>Apesar de programas sociais e avanços em áreas como educação e saúde, o país enfrentou momentos de inflação elevada que impactaram diretamente a vida da população. Os aumentos no preço de produtos essenciais, como alimentos, combustíveis e serviços básicos, reduziram o poder de compra das famílias, especialmente das mais vulneráveis, tornando o dia a dia mais difícil e limitando o acesso a necessidades básicas.</p>
+    <p class="destaque">Repercussões políticas:</p>
+    <p>Politicamente, os escândalos abriram espaço para crises institucionais e polarização social. A oposição utilizou esses episódios como argumento para questionar a competência e a moralidade do governo, criando um clima de instabilidade e desconfiança que persistiu mesmo durante períodos de crescimento econômico. Isso demonstra que avanços sociais não são suficientes quando práticas ilegais e antiéticas minam a confiança da população.</p>
 
-  <p class="destaque">Consequências sociais e econômicas:</p>
-  <p>A inflação não afeta apenas o bolso do cidadão; ela influencia a qualidade de vida, aumentando a desigualdade social e pressionando o orçamento das famílias. Muitos trabalhadores perceberam que, apesar de receber programas de auxílio, o custo crescente de itens essenciais neutralizava parte desses benefícios, mostrando a fragilidade de políticas econômicas que não combatem efetivamente a inflação.</p>
+    <p class="destaque">Custos econômicos da corrupção:</p>
+    <p>Além do impacto político e social, a corrupção provocou prejuízos financeiros diretos à população, desviando recursos que poderiam ser aplicados em saúde, educação e infraestrutura. Esse desvio comprometeu a eficiência do investimento público, mostrando que a corrupção não é apenas um problema moral, mas também um obstáculo real ao desenvolvimento econômico sustentável.</p>
+  </section>
 
-  <p class="destaque">Necessidade de políticas econômicas eficazes:</p>
-  <p>Esses episódios evidenciam a importância de uma gestão financeira responsável, capaz de equilibrar crescimento econômico com estabilidade de preços. Sem medidas adequadas, o aumento do custo de vida compromete a confiança da população na capacidade do governo de garantir prosperidade e bem-estar, tornando vulneráveis aqueles que mais precisam de proteção social.</p>
+  <!-- Seção Aba2 -->
+  <section id="aba2">
+    <div class="imagem-aba">
+      <img src="aba2.jpeg" alt="Aba 2">
+      <div class="texto-sobre-imagem-aba">Inflação e aumento do custo de vida</div>
+    </div>
+    <p>Apesar de programas sociais e avanços em áreas como educação e saúde, o país enfrentou momentos de inflação elevada que impactaram diretamente a vida da população. Os aumentos no preço de produtos essenciais, como alimentos, combustíveis e serviços básicos, reduziram o poder de compra das famílias, especialmente das mais vulneráveis, tornando o dia a dia mais difícil e limitando o acesso a necessidades básicas.</p>
 
-  <p class="destaque">Impacto sobre investimentos e empregos:</p>
-  <p>A inflação também afeta o ambiente de negócios, tornando o planejamento financeiro de empresas mais incerto e desestimulando investimentos. Isso pode resultar em menor criação de empregos e em instabilidade no mercado de trabalho, mostrando que o aumento do custo de vida não prejudica apenas os consumidores, mas também a economia como um todo.</p>
-</section>
-<!-- Scripts e ajustes finais -->
+    <p class="destaque">Consequências sociais e econômicas:</p>
+    <p>A inflação não afeta apenas o bolso do cidadão; ela influencia a qualidade de vida, aumentando a desigualdade social e pressionando o orçamento das famílias. Muitos trabalhadores perceberam que, apesar de receber programas de auxílio, o custo crescente de itens essenciais neutralizava parte desses benefícios, mostrando a fragilidade de políticas econômicas que não combatem efetivamente a inflação.</p>
+
+    <p class="destaque">Necessidade de políticas econômicas eficazes:</p>
+    <p>Esses episódios evidenciam a importância de uma gestão financeira responsável, capaz de equilibrar crescimento econômico com estabilidade de preços. Sem medidas adequadas, o aumento do custo de vida compromete a confiança da população na capacidade do governo de garantir prosperidade e bem-estar, tornando vulneráveis aqueles que mais precisam de proteção social.</p>
+
+    <p class="destaque">Impacto sobre investimentos e empregos:</p>
+    <p>A inflação também afeta o ambiente de negócios, tornando o planejamento financeiro de empresas mais incerto e desestimulando investimentos. Isso pode resultar em menor criação de empregos e em instabilidade no mercado de trabalho, mostrando que o aumento do custo de vida não prejudica apenas os consumidores, mas também a economia como um todo.</p>
+  </section>
+</div>
+
 <audio id="soundEffect" src="vc-e-cringe-cringe-gado-e-gorel.mp3" preload="auto"></audio>
 
 <script>
@@ -239,35 +293,5 @@
     if (sectionToShow) sectionToShow.classList.add('active');
   }
 </script>
-
-<!-- Ajustes CSS finais -->
-<style>
-  /* Logo da faixa */
-  .faixa-topo img {
-    position: absolute;
-    left: 15px;
-    top: 10px;
-    height: 80px;
-    z-index: 1003;
-  }
-
-  /* Ajuste da posição do menu na sidebar */
-  .sidebar h2 {
-    margin: 10px 0 20px 40px; /* subiu um pouco */
-  }
-
-  /* Pequena melhoria nas faixas e blocos */
-  .faixa-topo {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-
-  .conteudo {
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  }
-
-  .sidebar a:hover {
-    padding-left: 50px;
-    color: #dd0000;
-    background-color: rgba(255,255,255,0.9);
-  }
-</style>
+</body>
+</html>
