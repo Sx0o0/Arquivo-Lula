@@ -103,6 +103,7 @@
       overflow-x: hidden;
       transition: width 0.4s ease;
       padding-top: 78px;                     /* cabeçalho um pouco mais acima */
+      padding-bottom: 28px;                  /* espaço inferior para o link de contato */
       z-index: 1050;
       box-shadow: -4px 0 14px rgba(0,0,0,0.45);
       display: flex;
@@ -156,6 +157,23 @@
       padding-left: 42px;
       color: #dd0000;
       border-left-color: #dd0000;
+    }
+
+    /* ------------------ NOS CONTATE (MENOS DESTAQUE, NO RODAPÉ) ------------------ */
+    .sidebar a.contato-link {
+      font-size: 15px;
+      font-weight: 400;
+      margin-top: auto;   /* empurra para o final */
+      opacity: 0.7;
+      border-left: none;  /* sem borda */
+      padding-left: 32px; /* alinhamento mais suave */
+    }
+    .sidebar a.contato-link:hover {
+      opacity: 1;
+      color: #dd0000;
+      background-color: rgba(255,255,255,0.7);
+      padding-left: 32px; /* não empurra tanto */
+      border-left: none;  /* garante que não aparece borda */
     }
 
     /* ------------------ CONTEÚDO (CARTÃO) ------------------ */
@@ -276,7 +294,7 @@
     <img src="pt1.png" alt="Logo" class="imagem-sobre-faixa" />
     <div class="faixa-topo">
       <h1>PT em Mate</h1>
-      <div class="menu-hamburguer" onclick="toggleSidebar()">
+      <div class="menu-hamburguer" onclick="toggleSidebar()" aria-label="Abrir menu">
         <div></div>
         <div></div>
         <div></div>
@@ -285,7 +303,7 @@
   </div>
 
   <!-- SIDEBAR (abre da direita) -->
-  <div id="sidebar" class="sidebar" aria-hidden="true">
+  <div id="sidebar" class="sidebar" aria-hidden="true" role="navigation">
     <span class="close-btn" onclick="toggleSidebar()" aria-label="Fechar menu">&times;</span>
     <h2>Menu</h2>
     <a href="#" onclick="showSection('home')">Corrupção na Política</a>
@@ -294,7 +312,7 @@
     <a href="#" onclick="showSection('aba2')">Inflação e aumento do custo de vida</a>
     <a href="#" onclick="playSound()">???</a>
     <!-- NOVO: link da aba de contato ao final da sidebar -->
-    <a href="#" onclick="showSection('contato')">Nos Contate</a>
+    <a href="#" class="contato-link" onclick="showSection('contato')">Nos Contate</a>
   </div>
 
   <!-- CARTÃO DE CONTEÚDO -->
@@ -309,7 +327,7 @@
       <p>Luiz Inácio Lula da Silva é um político brasileiro e um dos fundadores do Partido dos Trabalhadores (PT). Foi presidente do Brasil entre 2003 e 2010 e voltou ao cargo em 2023, após um período marcado por controvérsias. Durante seus mandatos, implementou programas sociais que geraram impactos variados na sociedade, ao mesmo tempo em que enfrentou críticas relacionadas à gestão econômica e a casos de corrupção envolvendo membros de seu partido e aliados. Sua trajetória política é marcada por fortes polarizações, e ele também enfrentou diversos processos judiciais que dividiram opiniões no país. Antes de ingressar na política formal, atuou como líder sindical, tendo um papel importante nas mobilizações trabalhistas dos anos 70 e 80.</p>
 
       <p class="destaque">O Ato de Corrupção na Política Brasileira:</p>
-      <p>A corrupção é um fenômeno antigo e recorrente na história política do Brasil, manifestando-se de diversas formas ao longo das décadas. No contexto político, ela envolve o uso indevido do poder público para obtenção de vantagens pessoais ou em benefício de terceiros. Isso pode incluir subornos, desvio de verbas públicas, fraudes em licitações, tráfico de influência, lavagem de dinheiro, entre outras práticas ilegais. Tais atos comprometem a integridade das institucões, minam a confiança da população e prejudicam diretamente o funcionamento do Estado.</p>
+      <p>A corrupção é um fenômeno antigo e recorrente na história política do Brasil, manifestando-se de diversas formas ao longo das décadas. No contexto político, ela envolve o uso indevido do poder público para obtenção de vantagens pessoais ou em benefício de terceiros. Isso pode incluir subornos, desvio de verbas públicas, fraudes em licitações, tráfico de influência, lavagem de dinheiro, entre outras práticas ilegais. Tais atos comprometem a integridade das instituições, minam a confiança da população e prejudicam diretamente o funcionamento do Estado.</p>
 
       <p>Ao longo dos anos, diversos escândalos de corrupção vieram à tona, envolvendo agentes públicos de diferentes esferas de governo. Casos amplamente divulgados, como o Mensalão e a Operação Lava Jato, revelaram esquemas complexos de desvio de recursos públicos e financiamento ilegal de campanhas políticas. Esses escândalos mostraram como empresas privadas, órgãos públicos e lideranças políticas podem se envolver em redes de corrupção estruturadas e sistemáticas, muitas vezes contando com a participação de figuras influentes e altos funcionários.</p>
 
@@ -395,6 +413,7 @@
     /* Abre/fecha a sidebar à direita */
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
+      // usa a largura atual em style (controlada por JS) para alternar
       const opened = sidebar.style.width === '280px';
       sidebar.style.width = opened ? '0' : '280px';
       sidebar.setAttribute('aria-hidden', opened ? 'true' : 'false');
@@ -407,8 +426,16 @@
 
     /* Alterna as seções (abas) sem cortar nada */
     function showSection(sectionId) {
-      // fecha a sidebar ao escolher
-      toggleSidebar();
+      // fecha a sidebar ao escolher (se estiver aberta)
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar && sidebar.style.width === '280px') {
+        toggleSidebar();
+      } else {
+        // se por algum motivo a sidebar não estiver com estilo inline, tenta fechá-la de qualquer forma
+        // (não interrompe a navegação)
+        sidebar.style.width = '0';
+        sidebar.setAttribute('aria-hidden', 'true');
+      }
 
       const sections = document.querySelectorAll('section');
       sections.forEach(sec => sec.classList.remove('active'));
