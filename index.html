@@ -9,24 +9,19 @@
   <style>
     /* ------------------ RESET & BASE ------------------ */
     * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      padding: 0;
-    }
+    html, body { margin: 0; padding: 0; }
     body {
-      background-color: #dd0000;            /* mantém a cor pedida */
+      background-color: #dd0000;
       font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
       animation: fadeInBody 1.2s ease-in;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
     @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
 
     /* ------------------ TOPO / FAIXA ------------------ */
-    .container-topo {
-      position: relative;
-      z-index: 1002;
-    }
-
+    .container-topo { position: relative; z-index: 1002; }
     .faixa-topo {
       background: linear-gradient(180deg, #dd0000 0%, #d20000 100%);
       height: 120px;
@@ -38,7 +33,6 @@
       z-index: 1002;
       box-shadow: 0 6px 20px rgba(0,0,0,0.28);
     }
-
     .faixa-topo::after {
       content: "";
       position: absolute;
@@ -49,7 +43,6 @@
       background: radial-gradient(50% 200% at 50% -80%, rgba(0,0,0,0.18), transparent 70%);
       pointer-events: none;
     }
-
     .imagem-sobre-faixa {
       position: absolute;
       top: 14px;
@@ -58,7 +51,6 @@
       z-index: 1003;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,.35));
     }
-
     .faixa-topo h1 {
       color: #fff;
       margin: 0;
@@ -93,7 +85,7 @@
     /* ------------------ SIDEBAR (DIREITA) ------------------ */
     .sidebar {
       height: 100%;
-      width: 0;                              /* abre via JS */
+      width: 0;
       position: fixed;
       top: 0;
       right: 0;
@@ -101,9 +93,8 @@
       backdrop-filter: blur(8px);
       overflow-x: hidden;
       transition: width 0.4s ease;
-      /* reduzi padding-top para colocar "Menu" mais em cima na sidebar */
       padding-top: 20px;
-      padding-bottom: 28px;                  /* espaço inferior para o link de contato */
+      padding-bottom: 28px;
       z-index: 1050;
       box-shadow: -4px 0 14px rgba(0,0,0,0.45);
       display: flex;
@@ -129,17 +120,16 @@
       color: #dd0000;
     }
 
-    /* --- Menu: mais em cima e com destaque --- */
     .sidebar h2 {
-      margin: 6px 0 12px 0;      /* pouco espaço acima e abaixo */
+      margin: 6px 0 12px 0;
       width: 100%;
-      font-size: 28px;           /* maior */
+      font-size: 28px;
       color: #222;
-      font-weight: 900;          /* mais em negrito */
-      text-align: center;        /* centralizado */
-      padding: 0 16px 10px;      /* espaço interno e para a linha */
+      font-weight: 900;
+      text-align: center;
+      padding: 0 16px 10px;
       box-sizing: border-box;
-      border-bottom: 2px solid #dd0000; /* linha vermelha para destaque */
+      border-bottom: 2px solid #dd0000;
       letter-spacing: 0.4px;
     }
 
@@ -165,27 +155,26 @@
       border-left-color: #dd0000;
     }
 
-    /* ------------------ NOS CONTATE (MENOS DESTAQUE, NO RODAPÉ) ------------------ */
     .sidebar a.contato-link {
       font-size: 15px;
       font-weight: 400;
-      margin-top: auto;   /* empurra para o final */
+      margin-top: auto;
       opacity: 0.7;
-      border-left: none;  /* sem borda */
-      padding-left: 32px; /* alinhamento mais suave */
+      border-left: none;
+      padding-left: 32px;
     }
     .sidebar a.contato-link:hover {
       opacity: 1;
       color: #dd0000;
       background-color: rgba(255,255,255,0.7);
-      padding-left: 32px; /* não empurra tanto */
-      border-left: none;  /* garante que não aparece borda */
+      padding-left: 32px;
+      border-left: none;
     }
 
     /* ------------------ CONTEÚDO (CARTÃO) ------------------ */
     .conteudo {
       background-color: #fff;
-      color: #000;                           /* textos em PRETO no conteúdo */
+      color: #000;
       max-width: 1100px;
       margin: 38px auto 88px auto;
       padding: 42px 38px;
@@ -218,8 +207,8 @@
     .imagem-final,
     .imagem-aba {
       display: flex;
-      justify-content: center;               /* centraliza horizontalmente */
-      align-items: center;                   /* segurança vertical */
+      justify-content: center;
+      align-items: center;
       margin: 26px 0 30px 0;
       position: relative;
     }
@@ -227,7 +216,7 @@
     .imagem-central-abaixo img,
     .imagem-final img,
     .imagem-aba img {
-      width: min(680px, 92vw);               /* responsivo, bem central */
+      width: min(680px, 92vw);
       height: auto;
       display: block;
       border-radius: 10px;
@@ -240,12 +229,11 @@
       transform: scale(1.03);
     }
 
-    /* ------------------ RÓTULOS SOBRE AS IMAGENS ------------------ */
     .texto-sobre-imagem,
     .texto-sobre-imagem-final,
     .texto-sobre-imagem-aba {
       position: absolute;
-      top: -26px;                            /* acima da imagem */
+      top: -26px;
       left: 50%;
       transform: translateX(-50%);
       background-color: #333;
@@ -260,19 +248,37 @@
     }
 
     /* ------------------ TIPOGRAFIA DO CONTEÚDO ------------------ */
-    p {
-      color: #000;                           /* preto garantido */
-      line-height: 1.7;
-      margin-bottom: 18px;
-      font-size: 17px;
-    }
+    p { color: #000; line-height: 1.7; margin-bottom: 18px; font-size: 17px; }
+    .destaque { color: #000; font-weight: 800; margin: 28px 0 10px 0; letter-spacing: .2px; }
 
-    .destaque {
-      color: #000;                           /* preto garantido */
-      font-weight: 800;
-      margin: 28px 0 10px 0;
-      letter-spacing: .2px;
+    /* ------------------ FORMULÁRIO DE CONTATO ------------------ */
+    .form-contato {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 600px;
+      margin: 20px auto 0 auto;
     }
+    .form-contato input,
+    .form-contato textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      width: 100%;
+    }
+    .form-contato button {
+      padding: 12px;
+      background: #dd0000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .form-contato button:hover { background: #b50000; }
+    #contato a { color: #dd0000; text-decoration: underline; }
 
     /* ------------------ RESPONSIVIDADE ------------------ */
     @media (max-width: 768px) {
@@ -287,7 +293,6 @@
         border-radius: 12px;
       }
 
-      /* reduz um pouco o espaço superior da sidebar no mobile */
       .sidebar { padding-top: 18px; }
       .sidebar h2 { font-size: 20px; padding: 0 12px 8px; }
       .sidebar a { padding: 12px 26px; }
@@ -313,13 +318,12 @@
   <div id="sidebar" class="sidebar" aria-hidden="true" role="navigation">
     <span class="close-btn" onclick="toggleSidebar()" aria-label="Fechar menu">&times;</span>
     <h2>Menu</h2>
-    <a href="#" onclick="showSection('home')">Corrupção na Política</a>
-    <a href="#" onclick="showSection('sobre')">Impostos e Crise Econômica</a>
-    <a href="#" onclick="showSection('aba1')">Corrupção e escândalos envolvendo o PT</a>
-    <a href="#" onclick="showSection('aba2')">Inflação e aumento do custo de vida</a>
-    <a href="#" onclick="playSound()">???</a>
-    <!-- NOVO: link da aba de contato ao final da sidebar -->
-    <a href="#" class="contato-link" onclick="showSection('contato')">Nos Contate</a>
+    <a href="#" onclick="event.preventDefault(); showSection('home')">Corrupção na Política</a>
+    <a href="#" onclick="event.preventDefault(); showSection('sobre')">Impostos e Crise Econômica</a>
+    <a href="#" onclick="event.preventDefault(); showSection('aba1')">Corrupção e escândalos envolvendo o PT</a>
+    <a href="#" onclick="event.preventDefault(); showSection('aba2')">Inflação e aumento do custo de vida</a>
+    <a href="#" onclick="event.preventDefault(); playSound()">???</a>
+    <a href="#" class="contato-link" onclick="event.preventDefault(); showSection('contato')">Nos Contate</a>
   </div>
 
   <!-- CARTÃO DE CONTEÚDO -->
@@ -396,7 +400,7 @@
       <p>A inflação também afeta o ambiente de negócios, tornando o planejamento financeiro de empresas mais incerto e desestimulando investimentos. Isso pode resultar em menor criação de empregos e em instabilidade no mercado de trabalho, mostrando que o aumento do custo de vida não prejudica apenas os consumidores, mas também a economia como um todo.</p>
     </section>
 
-    <!-- NOVO: Seção Nos Contate -->
+    <!-- Seção Contato -->
     <section id="contato">
       <div class="imagem-aba">
         <img src="contato.jpeg" alt="Nos Contate" />
@@ -406,7 +410,28 @@
       <p class="destaque">Fale com a equipe:</p>
       <p>Tem alguma dúvida, sugestão ou correção? Envie uma mensagem — sua participação é bem-vinda.</p>
 
-      <p><strong>Email:</strong> contato@seu-dominio.com</p>
+      <!-- FORMULÁRIO: usa FormSubmit para enviar sem backend -->
+      <form action="https://formsubmit.co/thyteamcontato@gmail.com" method="POST" class="form-contato">
+        <!-- evita captcha automático -->
+        <input type="hidden" name="_captcha" value="false">
+        <!-- redireciona para obrigado.html após envio -->
+        <input type="hidden" name="_next" value="obrigado.html">
+        <!-- assunto opcional -->
+        <input type="hidden" name="_subject" value="Mensagem do site - PT em Mate">
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+
+        <label for="emailForm">Seu E-mail:</label>
+        <input type="email" id="emailForm" name="email" required placeholder="seuemail@exemplo.com">
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="6" required placeholder="Escreva sua mensagem aqui..."></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <p><strong>Email:</strong> <a href="mailto:thyteamcontato@gmail.com">thyteamcontato@gmail.com</a></p>
       <p><strong>Telefone/WhatsApp:</strong> (11) 99999-0000</p>
       <p><strong>Redes sociais:</strong> @seudominio</p>
     </section>
@@ -427,7 +452,11 @@
 
     function playSound() {
       const sound = document.getElementById('soundEffect');
-      if (sound) sound.play();
+      if (sound) {
+        // para caso esteja tocando
+        sound.currentTime = 0;
+        sound.play().catch(()=>{/* sem bloqueio */});
+      }
     }
 
     /* Alterna as seções (abas) sem cortar nada */
@@ -445,7 +474,8 @@
       if (sectionToShow) {
         sectionToShow.classList.add('active');
         // rola pro topo do cartão para melhorar UX
-        document.querySelector('.conteudo').scrollTo({ top: 0, behavior: 'smooth' });
+        const content = document.querySelector('.conteudo');
+        if (content && content.scrollTo) content.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
 
@@ -454,6 +484,18 @@
       if (e.key === 'Escape') {
         const sidebar = document.getElementById('sidebar');
         if (sidebar && sidebar.style.width === '280px') toggleSidebar();
+      }
+    });
+
+    // Accessibilidade: fecha sidebar clicando fora (em telas pequenas)
+    document.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('sidebar');
+      const menu = document.querySelector('.menu-hamburguer');
+      if (!sidebar || !menu) return;
+      if (sidebar.style.width === '280px') {
+        const insideSidebar = sidebar.contains(e.target);
+        const clickedMenu = menu.contains(e.target);
+        if (!insideSidebar && !clickedMenu) toggleSidebar();
       }
     });
   </script>
