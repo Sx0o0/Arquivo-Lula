@@ -29,17 +29,16 @@
 
     .faixa-topo {
       background: linear-gradient(180deg, #dd0000 0%, #d20000 100%);
-      height: 120px;                         /* um pouco mais alta, sem cortar nada */
+      height: 120px;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       z-index: 1002;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.28); /* embeleza a faixa */
+      box-shadow: 0 6px 20px rgba(0,0,0,0.28);
     }
 
-    /* “onda” suave na base da faixa, mesma cor (sombras apenas) */
     .faixa-topo::after {
       content: "";
       position: absolute;
@@ -55,7 +54,7 @@
       position: absolute;
       top: 14px;
       left: 14px;
-      height: 90px;                          /* restaurado */
+      height: 90px;
       z-index: 1003;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,.35));
     }
@@ -102,7 +101,8 @@
       backdrop-filter: blur(8px);
       overflow-x: hidden;
       transition: width 0.4s ease;
-      padding-top: 78px;                     /* cabeçalho um pouco mais acima */
+      /* reduzi padding-top para colocar "Menu" mais em cima na sidebar */
+      padding-top: 20px;
       padding-bottom: 28px;                  /* espaço inferior para o link de contato */
       z-index: 1050;
       box-shadow: -4px 0 14px rgba(0,0,0,0.45);
@@ -113,7 +113,7 @@
 
     .close-btn {
       position: absolute;
-      top: 16px;
+      top: 12px;
       right: 18px;
       font-size: 32px;
       color: #000;
@@ -129,12 +129,18 @@
       color: #dd0000;
     }
 
+    /* --- Menu: mais em cima e com destaque --- */
     .sidebar h2 {
-      margin: 6px 0 16px 32px;              /* “Menu” ligeiramente mais alto */
-      font-size: 24px;
+      margin: 6px 0 12px 0;      /* pouco espaço acima e abaixo */
+      width: 100%;
+      font-size: 28px;           /* maior */
       color: #222;
-      font-weight: 800;
-      letter-spacing: .3px;
+      font-weight: 900;          /* mais em negrito */
+      text-align: center;        /* centralizado */
+      padding: 0 16px 10px;      /* espaço interno e para a linha */
+      box-sizing: border-box;
+      border-bottom: 2px solid #dd0000; /* linha vermelha para destaque */
+      letter-spacing: 0.4px;
     }
 
     .sidebar a {
@@ -281,9 +287,10 @@
         border-radius: 12px;
       }
 
-      .sidebar { padding-top: 74px; }
-      .sidebar h2 { margin-left: 26px; }
-      .sidebar a { padding: 14px 26px; }
+      /* reduz um pouco o espaço superior da sidebar no mobile */
+      .sidebar { padding-top: 18px; }
+      .sidebar h2 { font-size: 20px; padding: 0 12px 8px; }
+      .sidebar a { padding: 12px 26px; }
     }
   </style>
 </head>
@@ -413,7 +420,6 @@
     /* Abre/fecha a sidebar à direita */
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
-      // usa a largura atual em style (controlada por JS) para alternar
       const opened = sidebar.style.width === '280px';
       sidebar.style.width = opened ? '0' : '280px';
       sidebar.setAttribute('aria-hidden', opened ? 'true' : 'false');
@@ -430,11 +436,6 @@
       const sidebar = document.getElementById('sidebar');
       if (sidebar && sidebar.style.width === '280px') {
         toggleSidebar();
-      } else {
-        // se por algum motivo a sidebar não estiver com estilo inline, tenta fechá-la de qualquer forma
-        // (não interrompe a navegação)
-        sidebar.style.width = '0';
-        sidebar.setAttribute('aria-hidden', 'true');
       }
 
       const sections = document.querySelectorAll('section');
